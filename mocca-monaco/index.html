@@ -3,141 +3,477 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mocca Monaco – Italienisches Café in München</title>
-<meta name="description" content="Mocca Monaco: gemütliches italienisches Café in der Fraunhoferstraße, München. Frisch gebackene Croissants, Pistazien-Cappuccino und herzliche Atmosphäre. ★ 4,6 bei Google.">
-<meta property="og:title" content="Mocca Monaco – Italienisches Café in München">
-<meta property="og:description" content="Frisch gebackene Croissants, Pistazien-Cappuccino und herzliche Atmosphäre in der Fraunhoferstraße, München.">
+<title>Mocca Monaco — Italienisches Café im Glockenbachviertel, München</title>
+<meta name="description" content="Mocca Monaco – charmantes italienisches Café in der Fraunhoferstraße, München. Frische Croissants aus dem Ofen, echter Pistazien-Cappuccino und ein ganz besonderes Ambiente. 4,6 ★ bei 188 Google-Bewertungen.">
+<meta property="og:title" content="Mocca Monaco — Italienisches Café in München">
+<meta property="og:description" content="Frische Croissants, echter Pistazien-Cappuccino und ein ganz besonderes Ambiente im Glockenbachviertel.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://lh3.googleusercontent.com/place-photos/AJRVUZO86gzIKRyJkJS529qR1tIeyUSXmm7d17CTawFg-PW7MG1KDRQu0aJ80K3sLg82FSA2OV8LaZ63-wlMB2tO4biyHcAYT85UFG9rUSWXIef_QEbTMjw3xzyMLDn3fy7gHFa6UWR0GbkSSecvd4klyfPl7Q=s4800-w1080-h1200">
 <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-stone-50 text-stone-800 antialiased">
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          espresso: '#2b1a12',
+          mocha: '#4a2c1d',
+          crema: '#f6ead9',
+          latte: '#e9d7bf',
+          pistachio: '#8fae6b',
+          pistdark: '#5f7d41',
+          terracotta: '#c96f4a',
+        },
+        fontFamily: {
+          serif: ['Georgia', 'Cambria', '"Times New Roman"', 'serif'],
+          sans: ['ui-sans-serif', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+        },
+      },
+    },
+  };
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { background: #f6ead9; }
 
-<header class="sticky top-0 z-50 bg-stone-50/90 backdrop-blur border-b border-stone-200">
-  <nav class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-    <a href="#top" class="text-xl font-semibold tracking-tight text-amber-900">Mocca Monaco</a>
-    <ul class="hidden sm:flex gap-8 text-sm font-medium text-stone-600">
-      <li><a href="#ueber-uns" class="hover:text-amber-800 transition-colors">Über uns</a></li>
-      <li><a href="#galerie" class="hover:text-amber-800 transition-colors">Galerie</a></li>
-      <li><a href="#bewertungen" class="hover:text-amber-800 transition-colors">Bewertungen</a></li>
-      <li><a href="#oeffnungszeiten" class="hover:text-amber-800 transition-colors">Öffnungszeiten</a></li>
-      <li><a href="#kontakt" class="hover:text-amber-800 transition-colors">Kontakt</a></li>
+  /* ---- Hero photo frame + 3D tilt ---- */
+  .tilt-scene { perspective: 1200px; }
+  .tilt-card {
+    transform-style: preserve-3d;
+    transition: transform 0.4s cubic-bezier(.2,.7,.2,1);
+    will-change: transform;
+  }
+  .hero-photo { will-change: transform; }
+
+  /* ---- Rising steam ---- */
+  .steam {
+    position: absolute;
+    bottom: 100%;
+    width: 10px;
+    height: 55px;
+    background: linear-gradient(to top, rgba(246,234,217,0), rgba(246,234,217,.55));
+    border-radius: 50%;
+    filter: blur(4px);
+    opacity: 0;
+    transform-origin: bottom center;
+    animation: rise 4.5s ease-in-out infinite;
+  }
+  @keyframes rise {
+    0%   { opacity: 0; transform: translateY(10px) scaleX(1) scaleY(.6); }
+    18%  { opacity: .8; }
+    60%  { opacity: .35; }
+    100% { opacity: 0; transform: translateY(-70px) scaleX(1.9) scaleY(1.4); }
+  }
+
+  /* ---- Scroll reveal ---- */
+  .reveal {
+    opacity: 0;
+    transform: translateY(34px);
+    transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1);
+  }
+  .reveal.in { opacity: 1; transform: none; }
+  .reveal-delay-1 { transition-delay: .09s; }
+  .reveal-delay-2 { transition-delay: .18s; }
+  .reveal-delay-3 { transition-delay: .27s; }
+
+  /* ---- Marquee bean strip ---- */
+  .marquee { display: flex; width: max-content; animation: slide 32s linear infinite; }
+  @keyframes slide { to { transform: translateX(-50%); } }
+
+  .grain::before {
+    content: "";
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+    opacity: .06; pointer-events: none; mix-blend-mode: overlay;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .steam, .marquee { animation: none; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .tilt-card { transition: none; }
+  }
+</style>
+</head>
+<body class="font-sans text-espresso antialiased selection:bg-pistachio/40">
+
+<!-- ===================== HEADER ===================== -->
+<header class="fixed top-0 inset-x-0 z-50 transition-colors duration-500" id="siteHeader">
+  <nav class="max-w-6xl mx-auto flex items-center justify-between px-5 py-4">
+    <a href="#top" class="flex items-baseline gap-2 group">
+      <span class="font-serif text-2xl tracking-tight text-crema drop-shadow-sm transition-colors" id="brand">Mocca <span class="italic text-pistachio">Monaco</span></span>
+    </a>
+    <ul class="hidden md:flex items-center gap-8 text-sm font-medium text-crema/90" id="navLinks">
+      <li><a href="#ueber" class="hover:text-pistachio transition-colors">Café</a></li>
+      <li><a href="#galerie" class="hover:text-pistachio transition-colors">Galerie</a></li>
+      <li><a href="#stimmen" class="hover:text-pistachio transition-colors">Stimmen</a></li>
+      <li><a href="#zeiten" class="hover:text-pistachio transition-colors">Öffnungszeiten</a></li>
+      <li><a href="#kontakt" class="hover:text-pistachio transition-colors">Kontakt</a></li>
     </ul>
-    <a href="#kontakt" class="sm:hidden text-sm font-medium text-amber-800">Kontakt</a>
+    <a href="https://www.google.com/maps/search/?api=1&query=Mocca+Monaco+Fraunhoferstra%C3%9Fe+17+80469+M%C3%BCnchen"
+       target="_blank" rel="noopener"
+       class="rounded-full bg-pistachio px-4 py-2 text-sm font-semibold text-espresso shadow-lg shadow-pistachio/30 hover:bg-pistdark hover:text-crema transition-colors">
+      Route
+    </a>
   </nav>
 </header>
 
 <main id="top">
 
-  <section class="relative isolate flex items-center justify-center min-h-[85vh] text-center px-6">
-    <img src="https://lh3.googleusercontent.com/place-photos/AJRVUZO86gzIKRyJkJS529qR1tIeyUSXmm7d17CTawFg-PW7MG1KDRQu0aJ80K3sLg82FSA2OV8LaZ63-wlMB2tO4biyHcAYT85UFG9rUSWXIef_QEbTMjw3xzyMLDn3fy7gHFa6UWR0GbkSSecvd4klyfPl7Q=s4800-w1080-h1200"
-         alt="Innenansicht des Mocca Monaco Cafés in München"
-         class="absolute inset-0 w-full h-full object-cover -z-10">
-    <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70 -z-10"></div>
+<!-- ===================== HERO ===================== -->
+<section class="relative min-h-[100svh] flex items-center overflow-hidden bg-espresso">
+  <!-- Parallax background photo -->
+  <img id="heroBg"
+       src="https://lh3.googleusercontent.com/place-photos/AJRVUZO86gzIKRyJkJS529qR1tIeyUSXmm7d17CTawFg-PW7MG1KDRQu0aJ80K3sLg82FSA2OV8LaZ63-wlMB2tO4biyHcAYT85UFG9rUSWXIef_QEbTMjw3xzyMLDn3fy7gHFa6UWR0GbkSSecvd4klyfPl7Q=s4800-w1080-h1200"
+       alt="Gemütliche Sitzecke im Mocca Monaco mit warmem Licht"
+       class="hero-photo absolute inset-0 h-[118%] w-full object-cover -top-[9%] scale-105">
+  <div class="absolute inset-0 bg-gradient-to-b from-espresso/80 via-espresso/55 to-espresso/90"></div>
+  <div class="absolute inset-0 grain"></div>
 
-    <div class="max-w-2xl text-white">
-      <p class="inline-flex items-center gap-2 bg-white/10 border border-white/25 rounded-full px-4 py-1.5 text-sm font-medium mb-6 backdrop-blur-sm">
-        ★ 4,6 · 188 Bewertungen bei Google
+  <div class="relative z-10 w-full max-w-6xl mx-auto px-5 py-28 grid lg:grid-cols-12 gap-10 items-center">
+    <!-- Text -->
+    <div class="lg:col-span-7 text-crema">
+      <p class="mb-5 inline-flex items-center gap-2 rounded-full border border-crema/25 bg-crema/5 px-4 py-1.5 text-xs uppercase tracking-[0.28em] backdrop-blur-sm">
+        <span class="h-1.5 w-1.5 rounded-full bg-pistachio"></span> Caffè italiano · Glockenbachviertel
       </p>
-      <h1 class="text-4xl sm:text-6xl font-bold tracking-tight mb-4">Mocca Monaco</h1>
-      <p class="text-lg sm:text-xl text-stone-100/90 mb-8">
-        Italienisches Café mit frisch gebackenen Croissants, feinem Pistazien-Cappuccino und echten Blumen auf dem Tisch – mitten in München.
+      <h1 class="font-serif text-5xl sm:text-6xl md:text-7xl leading-[0.95] tracking-tight">
+        Mocca <span class="italic text-pistachio">Monaco</span>
+      </h1>
+      <p class="mt-6 max-w-xl text-lg sm:text-xl text-crema/85 leading-relaxed">
+        Ein kleines Stück Italien mitten in München. Croissants, frisch aus dem Ofen – Duft und Wärme inklusive – und ein Pistazien-Cappuccino, über den man spricht.
       </p>
-      <a href="https://www.google.com/maps/search/?api=1&query=Mocca+Monaco+Fraunhoferstra%C3%9Fe+17+80469+M%C3%BCnchen"
-         target="_blank" rel="noopener noreferrer"
-         class="inline-block bg-amber-700 hover:bg-amber-800 transition-colors text-white font-semibold px-8 py-3 rounded-full shadow-lg shadow-amber-900/30">
-        Route planen
-      </a>
-    </div>
-  </section>
 
-  <section id="ueber-uns" class="max-w-3xl mx-auto px-6 py-20 text-center">
-    <h2 class="text-3xl font-bold tracking-tight text-amber-900 mb-6">Über uns</h2>
-    <p class="text-lg leading-relaxed text-stone-600">
-      Bei uns riecht es nach frisch gebackenen Croissants direkt aus dem Ofen, es gibt einen besonders beliebten Pistazien-Cappuccino
-      und echte Blumen auf jedem Tisch. Ein kleines, herzliches Café mit ganz eigenem Charme in der Fraunhoferstraße.
-    </p>
-  </section>
+      <!-- Rating badge -->
+      <div class="mt-8 inline-flex items-center gap-3 rounded-2xl border border-crema/20 bg-espresso/40 px-5 py-3 backdrop-blur-sm">
+        <span class="text-pistachio text-xl leading-none tracking-tight" aria-hidden="true">★★★★★</span>
+        <span class="text-sm">
+          <span class="font-semibold text-crema">4,6</span>
+          <span class="text-crema/70"> · 188 Bewertungen bei Google</span>
+        </span>
+      </div>
 
-  <section id="galerie" class="max-w-6xl mx-auto px-6 py-12">
-    <h2 class="text-3xl font-bold tracking-tight text-amber-900 mb-8 text-center">Impressionen</h2>
-    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
-      <img src="https://lh3.googleusercontent.com/place-photos/AJRVUZOozrIBUTSPbtMmNlqo44RQf3HIs-P_GgFd9vfJy2S5QFYNoWFUKPKnUsGJwwVEPsE815kUQ3NqORdX18aCelQIW-YZwHkREFIjUAsgyTFg6fr-AEs4VdQqmr0SvK60EagjNG54XbJsY0cD-g-MKyyW-w=s4800-w1080-h1200"
-           alt="Gäste und Ambiente im Mocca Monaco" loading="lazy"
-           class="w-full h-56 object-cover rounded-2xl shadow-md">
-      <img src="https://lh3.googleusercontent.com/place-photos/AJRVUZNd85BNyqC-uAzOZSz3N_-jB6T-Gb000YR93sT4Nxu_ILmWxmVTPvtgJ8Y9Gunu9UAjiOIQcd-0wcjo2OP5ePwl39hvSle_oSwPT4zWHUc7Gn5jcZOVe9PV-F8GzeJBbmyfyAeRQ5H1RKYPl9snAIB_zw=s4800-w831-h1200"
-           alt="Kaffeespezialität im Mocca Monaco" loading="lazy"
-           class="w-full h-56 object-cover rounded-2xl shadow-md">
-      <img src="https://lh3.googleusercontent.com/place-photos/AJRVUZPojbwscU4WhtuXkJ8N7T7M2cI_aWg0ObIcFYnRQ8k6pP93f_17jqGSkOmSMpNEgCU5T4ge7e6zzhFOTpQlHZTBh97pK2V2tFer4iBPEalwOstmP0y9W15gLoOXRY7OWeynhi9BvBZIK6fhigLMe9R0=s4800-w1080-h1200"
-           alt="Frisch gebackene Croissants im Mocca Monaco" loading="lazy"
-           class="w-full h-56 object-cover rounded-2xl shadow-md">
-      <img src="https://lh3.googleusercontent.com/place-photos/AJRVUZN6JXxgo1FH0nDjCtOfEt9CB4MyBb1qnYoAch-asW0tknCnFsJZ2BwfKBgpPt6nQ6EdUh4WLZJQPO6SqagVhTz1Zw5ZUm0k9tXp6lVysL-KMttLFCceJNiY_ZYb18WycKiRMm9zXrgT-x85Ec822N3kCw=s4800-w1600-h1200"
-           alt="Café-Atmosphäre im Mocca Monaco" loading="lazy"
-           class="w-full h-56 object-cover rounded-2xl shadow-md sm:col-span-1 col-span-2">
-    </div>
-  </section>
-
-  <section id="bewertungen" class="bg-amber-50 py-20">
-    <div class="max-w-5xl mx-auto px-6">
-      <h2 class="text-3xl font-bold tracking-tight text-amber-900 mb-10 text-center">Was Gäste sagen</h2>
-      <div class="grid sm:grid-cols-3 gap-6">
-        <blockquote class="bg-white rounded-2xl shadow-sm p-6 flex flex-col">
-          <p class="text-amber-600 mb-3" aria-label="5 von 5 Sternen">★★★★★</p>
-          <p class="text-stone-600 text-sm leading-relaxed flex-1">„Love the place. Super sweet people. Special vibe. Cool to sit above and boom receive the order from a hand coming from below then just put it at the edge when done and it will disappear. It's also amazing that the croissants are done in the oven then and there and you can see and smell them fresh coming out of the oven. AND THE FLOWER ARE REAL FLOWERS! Love it.“</p>
-          <footer class="mt-4 text-sm font-semibold text-stone-800">Elias Al Alam <span class="font-normal text-stone-400">· vor 3 Monaten</span></footer>
-        </blockquote>
-        <blockquote class="bg-white rounded-2xl shadow-sm p-6 flex flex-col">
-          <p class="text-amber-600 mb-3" aria-label="4 von 5 Sternen">★★★★☆</p>
-          <p class="text-stone-600 text-sm leading-relaxed flex-1">„Cute Italian cafe, of course we had to try the pistachio cappuccino which was sweet but super tasty. Place is not too big but it was nice nonetheless 😊“</p>
-          <footer class="mt-4 text-sm font-semibold text-stone-800">Cafe on the Roast <span class="font-normal text-stone-400">· vor 6 Monaten</span></footer>
-        </blockquote>
-        <blockquote class="bg-white rounded-2xl shadow-sm p-6 flex flex-col">
-          <p class="text-amber-600 mb-3" aria-label="5 von 5 Sternen">★★★★★</p>
-          <p class="text-stone-600 text-sm leading-relaxed flex-1">„Visiting for the day and decided I wanted to stop here. Exceptional pistachio cappuccino, I was worried it was going to be too sweet and it wasn't at all. It was perfect.“</p>
-          <footer class="mt-4 text-sm font-semibold text-stone-800">iflyforcoffee <span class="font-normal text-stone-400">· vor einem Jahr</span></footer>
-        </blockquote>
+      <div class="mt-10 flex flex-wrap gap-4">
+        <a href="https://www.google.com/maps/search/?api=1&query=Mocca+Monaco+Fraunhoferstra%C3%9Fe+17+80469+M%C3%BCnchen"
+           target="_blank" rel="noopener"
+           class="rounded-full bg-pistachio px-7 py-3.5 font-semibold text-espresso shadow-xl shadow-pistachio/25 hover:bg-crema transition-colors">
+          Route zum Café
+        </a>
+        <a href="#ueber"
+           class="rounded-full border border-crema/35 px-7 py-3.5 font-semibold text-crema hover:bg-crema/10 transition-colors">
+          Mehr entdecken
+        </a>
       </div>
     </div>
-  </section>
 
-  <section id="oeffnungszeiten" class="max-w-2xl mx-auto px-6 py-20">
-    <h2 class="text-3xl font-bold tracking-tight text-amber-900 mb-8 text-center">Öffnungszeiten</h2>
-    <table class="w-full text-left border-collapse overflow-hidden rounded-2xl shadow-sm">
-      <tbody class="divide-y divide-stone-200 bg-white">
-        <tr><th scope="row" class="font-medium px-6 py-3 text-stone-700">Montag</th><td class="px-6 py-3 text-stone-500">Geschlossen</td></tr>
-        <tr><th scope="row" class="font-medium px-6 py-3 text-stone-700">Dienstag</th><td class="px-6 py-3 text-stone-600">08:00–16:00 Uhr</td></tr>
-        <tr><th scope="row" class="font-medium px-6 py-3 text-stone-700">Mittwoch</th><td class="px-6 py-3 text-stone-600">08:00–16:00 Uhr</td></tr>
-        <tr><th scope="row" class="font-medium px-6 py-3 text-stone-700">Donnerstag</th><td class="px-6 py-3 text-stone-600">08:00–22:00 Uhr</td></tr>
-        <tr><th scope="row" class="font-medium px-6 py-3 text-stone-700">Freitag</th><td class="px-6 py-3 text-stone-600">08:00–22:00 Uhr</td></tr>
-        <tr><th scope="row" class="font-medium px-6 py-3 text-stone-700">Samstag</th><td class="px-6 py-3 text-stone-600">09:00–22:00 Uhr</td></tr>
-        <tr><th scope="row" class="font-medium px-6 py-3 text-stone-700">Sonntag</th><td class="px-6 py-3 text-stone-600">09:00–18:00 Uhr</td></tr>
-      </tbody>
-    </table>
-  </section>
+    <!-- Signature: tilting coffee cup with steam -->
+    <div class="lg:col-span-5 flex justify-center lg:justify-end">
+      <div class="tilt-scene">
+        <div class="tilt-card relative">
+          <!-- steam -->
+          <div class="absolute left-1/2 -translate-x-[38px] bottom-[62%] w-0 h-0" aria-hidden="true">
+            <span class="steam" style="left:0;   animation-delay:0s;"></span>
+            <span class="steam" style="left:26px; animation-delay:1.3s;"></span>
+            <span class="steam" style="left:52px; animation-delay:2.5s;"></span>
+          </div>
+          <!-- cup -->
+          <svg viewBox="0 0 240 240" class="w-56 h-56 sm:w-72 sm:h-72 drop-shadow-[0_25px_45px_rgba(0,0,0,0.5)]" role="img" aria-label="Dampfende Espressotasse">
+            <defs>
+              <radialGradient id="cremaG" cx="50%" cy="38%" r="60%">
+                <stop offset="0%" stop-color="#c98a52"/>
+                <stop offset="55%" stop-color="#8a5427"/>
+                <stop offset="100%" stop-color="#3c2410"/>
+              </radialGradient>
+              <linearGradient id="porcelain" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#fbf3e6"/>
+                <stop offset="100%" stop-color="#e2cba8"/>
+              </linearGradient>
+            </defs>
+            <!-- saucer -->
+            <ellipse cx="120" cy="196" rx="96" ry="20" fill="url(#porcelain)"/>
+            <ellipse cx="120" cy="192" rx="96" ry="20" fill="#d8bf9c"/>
+            <ellipse cx="120" cy="190" rx="70" ry="13" fill="#c4a97f"/>
+            <!-- handle -->
+            <path d="M182 120 a34 34 0 0 1 0 44" fill="none" stroke="url(#porcelain)" stroke-width="14" stroke-linecap="round"/>
+            <!-- cup body -->
+            <path d="M56 108 h128 l-12 62 a26 26 0 0 1 -25 20 h-54 a26 26 0 0 1 -25 -20 z" fill="url(#porcelain)"/>
+            <!-- coffee -->
+            <ellipse cx="120" cy="112" rx="62" ry="15" fill="url(#cremaG)"/>
+            <ellipse cx="120" cy="110" rx="62" ry="15" fill="none" stroke="#fbf3e6" stroke-width="4" opacity=".7"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <section id="kontakt" class="bg-amber-900 text-amber-50 py-20">
-    <div class="max-w-2xl mx-auto px-6 text-center">
-      <h2 class="text-3xl font-bold tracking-tight mb-6">Kontakt & Anfahrt</h2>
-      <p class="text-lg mb-8">Fraunhoferstraße 17<br>80469 München</p>
+  <!-- scroll cue -->
+  <div class="absolute bottom-6 left-1/2 -translate-x-1/2 text-crema/60 text-xs tracking-[0.3em] uppercase animate-pulse">Scroll</div>
+</section>
+
+<!-- ===================== MARQUEE ===================== -->
+<div class="bg-espresso text-crema/80 py-4 overflow-hidden border-y border-crema/10" aria-hidden="true">
+  <div class="marquee gap-10 font-serif italic text-lg whitespace-nowrap">
+    <span class="flex gap-10">
+      <span>Espresso</span><span class="text-pistachio">✦</span><span>Cornetti freschi</span><span class="text-pistachio">✦</span><span>Pistazien-Cappuccino</span><span class="text-pistachio">✦</span><span>Dolce Vita</span><span class="text-pistachio">✦</span><span>Fiori veri</span><span class="text-pistachio">✦</span>
+    </span>
+    <span class="flex gap-10">
+      <span>Espresso</span><span class="text-pistachio">✦</span><span>Cornetti freschi</span><span class="text-pistachio">✦</span><span>Pistazien-Cappuccino</span><span class="text-pistachio">✦</span><span>Dolce Vita</span><span class="text-pistachio">✦</span><span>Fiori veri</span><span class="text-pistachio">✦</span>
+    </span>
+  </div>
+</div>
+
+<!-- ===================== ÜBER / ANGEBOT ===================== -->
+<section id="ueber" class="relative py-24 sm:py-32 bg-crema overflow-hidden">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="grid lg:grid-cols-2 gap-14 items-center">
+      <div class="reveal">
+        <p class="text-sm uppercase tracking-[0.28em] text-pistdark mb-4">Benvenuti</p>
+        <h2 class="font-serif text-4xl sm:text-5xl leading-tight text-espresso">
+          Ein Café, das man mit allen Sinnen erlebt
+        </h2>
+        <p class="mt-6 text-lg text-mocha/90 leading-relaxed">
+          Klein, herzlich, mit Charakter. Bei Mocca Monaco backen wir die Croissants dort, wo du sitzt – du siehst und riechst sie frisch aus dem Ofen kommen. Auf den Tischen stehen echte Blumen, im Cappuccino steckt echte Pistazie, und das Team empfängt dich, als wärst du zu Besuch bei Freunden in Italien.
+        </p>
+        <p class="mt-4 text-lg text-mocha/90 leading-relaxed">
+          Mitten im Glockenbachviertel, gemacht für langsame Vormittage und lange Nachmittage.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-5">
+        <article class="reveal reveal-delay-1 rounded-3xl bg-white/70 p-7 shadow-sm ring-1 ring-espresso/5">
+          <div class="text-3xl mb-3" aria-hidden="true">🥐</div>
+          <h3 class="font-serif text-xl text-espresso">Frisch gebacken</h3>
+          <p class="mt-2 text-mocha/80 text-sm leading-relaxed">Cornetti direkt aus dem Ofen – Duft, Wärme und der erste Biss inklusive.</p>
+        </article>
+        <article class="reveal reveal-delay-2 rounded-3xl bg-espresso p-7 text-crema shadow-lg">
+          <div class="text-3xl mb-3" aria-hidden="true">☕</div>
+          <h3 class="font-serif text-xl">Pistazien-Cappuccino</h3>
+          <p class="mt-2 text-crema/80 text-sm leading-relaxed">Süß, aber perfekt ausbalanciert – die Signatur, über die Gäste schwärmen.</p>
+        </article>
+        <article class="reveal reveal-delay-2 rounded-3xl bg-pistachio/20 p-7 shadow-sm ring-1 ring-pistdark/10">
+          <div class="text-3xl mb-3" aria-hidden="true">🌼</div>
+          <h3 class="font-serif text-xl text-espresso">Echte Blumen</h3>
+          <p class="mt-2 text-mocha/80 text-sm leading-relaxed">Auf jedem Tisch frische Blumen – kleine Details, die den Unterschied machen.</p>
+        </article>
+        <article class="reveal reveal-delay-3 rounded-3xl bg-white/70 p-7 shadow-sm ring-1 ring-espresso/5">
+          <div class="text-3xl mb-3" aria-hidden="true">💛</div>
+          <h3 class="font-serif text-xl text-espresso">Besonderer Vibe</h3>
+          <p class="mt-2 text-mocha/80 text-sm leading-relaxed">Super liebe Menschen, ein charmantes Plätzchen – einfach zum Wohlfühlen.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== GALERIE ===================== -->
+<section id="galerie" class="py-24 sm:py-32 bg-latte">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="flex items-end justify-between flex-wrap gap-4 mb-12 reveal">
+      <div>
+        <p class="text-sm uppercase tracking-[0.28em] text-pistdark mb-3">Impressionen</p>
+        <h2 class="font-serif text-4xl sm:text-5xl text-espresso">Ein Blick hinein</h2>
+      </div>
+      <p class="text-mocha/70 max-w-xs text-sm">Fotos aus dem Mocca Monaco – Ambiente, Kaffee und die kleinen Momente dazwischen.</p>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[220px]">
+      <figure class="reveal group relative overflow-hidden rounded-3xl row-span-2 md:col-span-2">
+        <img loading="lazy" src="https://lh3.googleusercontent.com/place-photos/AJRVUZOozrIBUTSPbtMmNlqo44RQf3HIs-P_GgFd9vfJy2S5QFYNoWFUKPKnUsGJwwVEPsE815kUQ3NqORdX18aCelQIW-YZwHkREFIjUAsgyTFg6fr-AEs4VdQqmr0SvK60EagjNG54XbJsY0cD-g-MKyyW-w=s4800-w1080-h1200"
+             alt="Detailaufnahme aus dem Mocca Monaco" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110">
+      </figure>
+      <figure class="reveal reveal-delay-1 group relative overflow-hidden rounded-3xl">
+        <img loading="lazy" src="https://lh3.googleusercontent.com/place-photos/AJRVUZNd85BNyqC-uAzOZSz3N_-jB6T-Gb000YR93sT4Nxu_ILmWxmVTPvtgJ8Y9Gunu9UAjiOIQcd-0wcjo2OP5ePwl39hvSle_oSwPT4zWHUc7Gn5jcZOVe9PV-F8GzeJBbmyfyAeRQ5H1RKYPl9snAIB_zw=s4800-w831-h1200"
+             alt="Kaffeespezialität im Mocca Monaco" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110">
+      </figure>
+      <figure class="reveal reveal-delay-2 group relative overflow-hidden rounded-3xl">
+        <img loading="lazy" src="https://lh3.googleusercontent.com/place-photos/AJRVUZPojbwscU4WhtuXkJ8N7T7M2cI_aWg0ObIcFYnRQ8k6pP93f_17jqGSkOmSMpNEgCU5T4ge7e6zzhFOTpQlHZTBh97pK2V2tFer4iBPEalwOstmP0y9W15gLoOXRY7OWeynhi9BvBZIK6fhigLMe9R0=s4800-w1080-h1200"
+             alt="Gebäck und Kaffee im Mocca Monaco" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110">
+      </figure>
+      <figure class="reveal reveal-delay-1 group relative overflow-hidden rounded-3xl md:col-span-2">
+        <img loading="lazy" src="https://lh3.googleusercontent.com/place-photos/AJRVUZN6JXxgo1FH0nDjCtOfEt9CB4MyBb1qnYoAch-asW0tknCnFsJZ2BwfKBgpPt6nQ6EdUh4WLZJQPO6SqagVhTz1Zw5ZUm0k9tXp6lVysL-KMttLFCceJNiY_ZYb18WycKiRMm9zXrgT-x85Ec822N3kCw=s4800-w1600-h1200"
+             alt="Innenraum des Mocca Monaco" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== STIMMEN / REZENSIONEN ===================== -->
+<section id="stimmen" class="relative py-24 sm:py-32 bg-espresso text-crema overflow-hidden">
+  <div class="absolute inset-0 grain"></div>
+  <div class="relative max-w-6xl mx-auto px-5">
+    <div class="text-center mb-14 reveal">
+      <p class="text-sm uppercase tracking-[0.28em] text-pistachio mb-3">Was Gäste sagen</p>
+      <h2 class="font-serif text-4xl sm:text-5xl">4,6 ★ bei 188 Google-Bewertungen</h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <blockquote class="reveal rounded-3xl bg-crema/5 border border-crema/10 p-7 backdrop-blur-sm flex flex-col">
+        <div class="text-pistachio text-lg mb-4" aria-label="5 von 5 Sternen">★★★★★</div>
+        <p class="text-crema/90 leading-relaxed flex-1">„Love the place. Super sweet people. Special vibe. Cool to sit above and boom receive the order from a hand coming from below then just put it at the edge when done and it will disappear. It's also amazing that the croissants are done in the oven then and there and you can see and smell them fresh coming out of the oven. AND THE FLOWER ARE REAL FLOWERS! Love it."</p>
+        <footer class="mt-6 flex items-center justify-between text-sm">
+          <span class="font-semibold text-crema">Elias Al Alam</span>
+          <span class="text-crema/50">vor 3 Monaten</span>
+        </footer>
+      </blockquote>
+
+      <blockquote class="reveal reveal-delay-1 rounded-3xl bg-crema/5 border border-crema/10 p-7 backdrop-blur-sm flex flex-col">
+        <div class="text-pistachio text-lg mb-4" aria-label="4 von 5 Sternen">★★★★<span class="text-crema/30">★</span></div>
+        <p class="text-crema/90 leading-relaxed flex-1">„Cute Italian cafe, of course we had to try the pistachio cappuccino which was sweet but super tasty. Place is not too big but it was nice nonetheless 😊"</p>
+        <footer class="mt-6 flex items-center justify-between text-sm">
+          <span class="font-semibold text-crema">Cafe on the Roast</span>
+          <span class="text-crema/50">vor 6 Monaten</span>
+        </footer>
+      </blockquote>
+
+      <blockquote class="reveal reveal-delay-2 rounded-3xl bg-crema/5 border border-crema/10 p-7 backdrop-blur-sm flex flex-col">
+        <div class="text-pistachio text-lg mb-4" aria-label="5 von 5 Sternen">★★★★★</div>
+        <p class="text-crema/90 leading-relaxed flex-1">„Visiting for the day and decided I wanted to stop here. Exceptional pistachio cappuccino, I was worried it was going to be too sweet and it wasn't at all. It was perfect."</p>
+        <footer class="mt-6 flex items-center justify-between text-sm">
+          <span class="font-semibold text-crema">iflyforcoffee</span>
+          <span class="text-crema/50">vor einem Jahr</span>
+        </footer>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ÖFFNUNGSZEITEN ===================== -->
+<section id="zeiten" class="py-24 sm:py-32 bg-crema">
+  <div class="max-w-4xl mx-auto px-5">
+    <div class="text-center mb-12 reveal">
+      <p class="text-sm uppercase tracking-[0.28em] text-pistdark mb-3">Wann wir da sind</p>
+      <h2 class="font-serif text-4xl sm:text-5xl text-espresso">Öffnungszeiten</h2>
+    </div>
+
+    <div class="reveal rounded-3xl bg-white/70 ring-1 ring-espresso/5 shadow-sm overflow-hidden divide-y divide-espresso/5">
+      <div class="flex items-center justify-between px-6 py-4 text-mocha/50">
+        <span class="font-medium">Montag</span><span class="italic">Geschlossen</span>
+      </div>
+      <div class="flex items-center justify-between px-6 py-4">
+        <span class="font-medium text-espresso">Dienstag</span><span class="tabular-nums">08:00 – 16:00 Uhr</span>
+      </div>
+      <div class="flex items-center justify-between px-6 py-4">
+        <span class="font-medium text-espresso">Mittwoch</span><span class="tabular-nums">08:00 – 16:00 Uhr</span>
+      </div>
+      <div class="flex items-center justify-between px-6 py-4">
+        <span class="font-medium text-espresso">Donnerstag</span><span class="tabular-nums">08:00 – 22:00 Uhr</span>
+      </div>
+      <div class="flex items-center justify-between px-6 py-4">
+        <span class="font-medium text-espresso">Freitag</span><span class="tabular-nums">08:00 – 22:00 Uhr</span>
+      </div>
+      <div class="flex items-center justify-between px-6 py-4">
+        <span class="font-medium text-espresso">Samstag</span><span class="tabular-nums">09:00 – 22:00 Uhr</span>
+      </div>
+      <div class="flex items-center justify-between px-6 py-4">
+        <span class="font-medium text-espresso">Sonntag</span><span class="tabular-nums">09:00 – 18:00 Uhr</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== KONTAKT ===================== -->
+<section id="kontakt" class="py-24 sm:py-32 bg-mocha text-crema">
+  <div class="max-w-5xl mx-auto px-5 grid md:grid-cols-2 gap-12 items-center">
+    <div class="reveal">
+      <p class="text-sm uppercase tracking-[0.28em] text-pistachio mb-3">Komm vorbei</p>
+      <h2 class="font-serif text-4xl sm:text-5xl leading-tight">Wir freuen uns auf dich</h2>
+      <p class="mt-6 text-crema/80 leading-relaxed max-w-md">
+        Mitten im Glockenbachviertel – am besten mit Zeit und Appetit auf Cornetti. Einfach vorbeischauen.
+      </p>
+    </div>
+
+    <div class="reveal reveal-delay-1 rounded-3xl bg-espresso/40 border border-crema/10 p-8 backdrop-blur-sm">
+      <h3 class="font-serif text-xl mb-1">Mocca Monaco</h3>
+      <address class="not-italic text-crema/85 leading-relaxed">
+        Fraunhoferstraße 17<br>
+        80469 München
+      </address>
       <a href="https://www.google.com/maps/search/?api=1&query=Mocca+Monaco+Fraunhoferstra%C3%9Fe+17+80469+M%C3%BCnchen"
-         target="_blank" rel="noopener noreferrer"
-         class="inline-block bg-white text-amber-900 hover:bg-amber-100 transition-colors font-semibold px-8 py-3 rounded-full shadow-lg">
-        Auf Google Maps ansehen
+         target="_blank" rel="noopener"
+         class="mt-6 inline-flex items-center gap-2 rounded-full bg-pistachio px-6 py-3 font-semibold text-espresso hover:bg-crema transition-colors">
+        In Google Maps öffnen
+        <span aria-hidden="true">→</span>
       </a>
     </div>
-  </section>
+  </div>
+</section>
 
 </main>
 
-<footer class="bg-stone-900 text-stone-400 text-sm py-8">
-  <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-    <p>&copy; 2026 Mocca Monaco</p>
-    <div class="flex gap-6">
-      <a href="/impressum" class="hover:text-white transition-colors">Impressum</a>
-      <a href="/datenschutz" class="hover:text-white transition-colors">Datenschutz</a>
-    </div>
+<!-- ===================== FOOTER ===================== -->
+<footer class="bg-espresso text-crema/70 py-12">
+  <div class="max-w-6xl mx-auto px-5 flex flex-col sm:flex-row items-center justify-between gap-6">
+    <div class="font-serif text-xl text-crema">Mocca <span class="italic text-pistachio">Monaco</span></div>
+    <nav class="flex items-center gap-6 text-sm">
+      <a href="/impressum" class="hover:text-pistachio transition-colors">Impressum</a>
+      <a href="/datenschutz" class="hover:text-pistachio transition-colors">Datenschutz</a>
+    </nav>
+    <p class="text-xs text-crema/50">© <span id="year">2026</span> Mocca Monaco · München</p>
   </div>
 </footer>
 
+<script>
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // current year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // ---- Scroll reveal ----
+  var reveals = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && !reduce) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(function (el) { io.observe(el); });
+  } else {
+    reveals.forEach(function (el) { el.classList.add('in'); });
+  }
+
+  // ---- Header background on scroll ----
+  var header = document.getElementById('siteHeader');
+  function onScroll() {
+    var solid = window.scrollY > 60;
+    header.classList.toggle('bg-espresso/90', solid);
+    header.classList.toggle('backdrop-blur-md', solid);
+    header.classList.toggle('shadow-lg', solid);
+  }
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  if (reduce) return;
+
+  // ---- Hero parallax on scroll ----
+  var heroBg = document.getElementById('heroBg');
+  var ticking = false;
+  window.addEventListener('scroll', function () {
+    if (!ticking) {
+      window.requestAnimationFrame(function () {
+        var y = window.scrollY;
+        if (y < window.innerHeight) {
+          heroBg.style.transform = 'translateY(' + (y * 0.18) + 'px) scale(1.05)';
+        }
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+
+  // ---- Signature: 3D tilt of coffee cup (mouse) ----
+  var scene = document.querySelector('.tilt-scene');
+  var card = document.querySelector('.tilt-card');
+  if (scene && card && window.matchMedia('(pointer:fine)').matches) {
+    scene.addEventListener('mousemove', function (ev) {
+      var r = scene.getBoundingClientRect();
+      var px = (ev.clientX - r.left) / r.width - 0.5;
+      var py = (ev.clientY - r.top) / r.height - 0.5;
+      card.style.transform = 'rotateY(' + (px * 18) + 'deg) rotateX(' + (-py * 18) + 'deg) translateZ(20px)';
+    });
+    scene.addEventListener('mouseleave', function () {
+      card.style.transform = '';
+    });
+  }
+})();
+</script>
 </body>
 </html>
