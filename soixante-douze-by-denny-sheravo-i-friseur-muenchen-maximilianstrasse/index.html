@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SOIXANTE-DOUZE by Denny Sheravo · Friseur München Maximilianstraße</title>
+<meta name="description" content="SOIXANTE-DOUZE – exklusiver Friseur im Herzen von München. Präzise Schnitte, feine Farben und premium Haarpflege made in Germany. ★ 4,9 bei 223 Google-Bewertungen.">
+<meta property="og:title" content="SOIXANTE-DOUZE by Denny Sheravo · Friseur München">
+<meta property="og:description" content="Stil ist eine Haltung. Exklusiver Friseursalon im Lehel, wenige Schritte von der Maximilianstraße. Präzise Schnitte, feine Farben, premium Pflege.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://lh3.googleusercontent.com/place-photos/AJRVUZMaOGGDxRkxW0TAL_28QAWlFHMXe_rWdHXuSkZclXKqO6w-EpkmHQbPQH41NZwiYXRErLbz6xQayIX4b8kxbgG5r4QCvn922rUN1A5QyohLXf1DDpd3lY0ZEC0zZNBVXOXzGfCZGU-YZBokf1U=s4800-w1600-h1200">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        ink: '#111014',
+        charcoal: '#1c1a20',
+        bone: '#f4f1ea',
+        sand: '#e7e0d3',
+        brass: '#b79268',
+        brasslight: '#d8bd9a'
+      },
+      fontFamily: {
+        serif: ['Georgia', 'Times New Roman', 'serif'],
+        sans: ['ui-sans-serif', 'system-ui', '-apple-system', 'Segoe UI', 'Helvetica', 'Arial', 'sans-serif']
+      }
+    }
+  }
+}
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { background: #111014; }
+  ::selection { background: #b79268; color: #111014; }
+
+  .track { letter-spacing: .32em; }
+  .track-sm { letter-spacing: .2em; }
+
+  /* Hero photo: langsamer Ken-Burns + Parallax-Anker */
+  .hero-img {
+    will-change: transform;
+    animation: kenburns 22s ease-in-out infinite alternate;
+  }
+  @keyframes kenburns {
+    from { transform: scale(1.08) translate3d(0,0,0); }
+    to   { transform: scale(1.18) translate3d(-1.5%, -2.2%, 0); }
+  }
+
+  /* Signature: fließende Schere / Linien-Motiv */
+  .stroke-draw {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: draw 3.4s ease forwards;
+  }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+
+  .float-slow { animation: float 7s ease-in-out infinite; }
+  @keyframes float {
+    0%,100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-14px) rotate(2deg); }
+  }
+
+  /* Scroll-Reveal */
+  .reveal { opacity: 0; transform: translateY(34px); transition: opacity 1s cubic-bezier(.16,.8,.3,1), transform 1s cubic-bezier(.16,.8,.3,1); }
+  .reveal.in { opacity: 1; transform: none; }
+  .reveal-delay-1 { transition-delay: .12s; }
+  .reveal-delay-2 { transition-delay: .24s; }
+  .reveal-delay-3 { transition-delay: .36s; }
+
+  .line-grow { transform: scaleX(0); transform-origin: left; transition: transform 1.1s cubic-bezier(.16,.8,.3,1); }
+  .line-grow.in { transform: scaleX(1); }
+
+  .card-tilt { transition: transform .5s cubic-bezier(.16,.8,.3,1), box-shadow .5s ease; will-change: transform; }
+
+  .nav-link { position: relative; }
+  .nav-link::after {
+    content:''; position:absolute; left:0; bottom:-4px; height:1px; width:100%;
+    background: currentColor; transform: scaleX(0); transform-origin:right; transition: transform .4s ease;
+  }
+  .nav-link:hover::after { transform: scaleX(1); transform-origin:left; }
+
+  .gallery-item img { transition: transform 1.2s cubic-bezier(.16,.8,.3,1), filter .6s ease; }
+  .gallery-item:hover img { transform: scale(1.06); }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; scroll-behavior: auto !important; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .line-grow { transform: none; }
+    .hero-img { transform: none; }
+  }
+</style>
+</head>
+<body class="bg-ink text-bone font-sans antialiased selection:bg-brass overflow-x-hidden">
+
+<!-- Header -->
+<header id="top" class="fixed top-0 inset-x-0 z-50 transition-all duration-500" data-header>
+  <div class="mx-auto max-w-7xl px-5 sm:px-8 flex items-center justify-between py-5">
+    <a href="#top" class="group flex flex-col leading-none">
+      <span class="font-serif text-lg sm:text-xl tracking-wide text-bone">SOIXANTE-DOUZE</span>
+      <span class="track-sm text-[10px] uppercase text-brasslight mt-1">by Denny Sheravo · München</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-9 text-[13px] uppercase track-sm text-sand">
+      <a href="#philosophie" class="nav-link hover:text-brasslight transition-colors">Philosophie</a>
+      <a href="#salon" class="nav-link hover:text-brasslight transition-colors">Salon</a>
+      <a href="#stimmen" class="nav-link hover:text-brasslight transition-colors">Stimmen</a>
+      <a href="#zeiten" class="nav-link hover:text-brasslight transition-colors">Zeiten</a>
+      <a href="#kontakt" class="nav-link hover:text-brasslight transition-colors">Kontakt</a>
+    </nav>
+    <a href="tel:+498974849366" class="hidden sm:inline-flex items-center gap-2 border border-brass/60 text-brasslight px-5 py-2.5 text-[12px] uppercase track-sm hover:bg-brass hover:text-ink transition-colors duration-300">
+      Termin
+    </a>
+  </div>
+</header>
+
+<main>
+
+<!-- Hero -->
+<section class="relative min-h-[100svh] flex items-end overflow-hidden">
+  <div class="absolute inset-0 z-0" data-parallax>
+    <img class="hero-img h-[115%] w-full object-cover" src="https://lh3.googleusercontent.com/place-photos/AJRVUZMaOGGDxRkxW0TAL_28QAWlFHMXe_rWdHXuSkZclXKqO6w-EpkmHQbPQH41NZwiYXRErLbz6xQayIX4b8kxbgG5r4QCvn922rUN1A5QyohLXf1DDpd3lY0ZEC0zZNBVXOXzGfCZGU-YZBokf1U=s4800-w1600-h1200" alt="Innenansicht des SOIXANTE-DOUZE Friseursalons in München">
+  </div>
+  <div class="absolute inset-0 z-10 bg-gradient-to-t from-ink via-ink/70 to-ink/40"></div>
+  <div class="absolute inset-0 z-10 bg-ink/25"></div>
+
+  <!-- Signature: fließendes Scheren-/Linien-Motiv -->
+  <svg class="absolute top-1/2 right-4 sm:right-16 z-10 w-40 sm:w-64 opacity-40 float-slow -translate-y-1/2 pointer-events-none" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+    <path class="stroke-draw" pathLength="1" d="M20 40 C 70 70, 90 120, 160 150" stroke="#d8bd9a" stroke-width="1.4"/>
+    <path class="stroke-draw" pathLength="1" style="animation-delay:.3s" d="M20 160 C 70 130, 90 80, 160 50" stroke="#d8bd9a" stroke-width="1.4"/>
+    <circle class="stroke-draw" pathLength="1" style="animation-delay:.9s" cx="30" cy="45" r="10" stroke="#d8bd9a" stroke-width="1.4"/>
+    <circle class="stroke-draw" pathLength="1" style="animation-delay:1.1s" cx="30" cy="155" r="10" stroke="#d8bd9a" stroke-width="1.4"/>
+    <circle cx="160" cy="150" r="2.5" fill="#d8bd9a"/>
+    <circle cx="160" cy="50" r="2.5" fill="#d8bd9a"/>
+  </svg>
+
+  <div class="relative z-20 w-full mx-auto max-w-7xl px-5 sm:px-8 pb-16 sm:pb-24">
+    <p class="reveal track text-[11px] sm:text-xs uppercase text-brasslight mb-6">Friseur · Maximilianstraße · Lehel</p>
+    <h1 class="reveal reveal-delay-1 font-serif text-[13vw] leading-[0.9] sm:text-7xl lg:text-8xl text-bone max-w-4xl">
+      Stil ist<br><span class="italic text-brasslight">eine Haltung.</span>
+    </h1>
+    <p class="reveal reveal-delay-2 mt-8 max-w-xl text-sand/90 text-base sm:text-lg leading-relaxed">
+      Bei SOIXANTE-DOUZE steht der Mensch im Mittelpunkt. Präzise Schnitte, fein abgestimmte Farben und premium Pflege – im Herzen von München.
+    </p>
+    <div class="reveal reveal-delay-3 mt-10 flex flex-wrap items-center gap-5">
+      <a href="tel:+498974849366" class="inline-flex items-center gap-3 bg-brass text-ink px-8 py-4 text-sm uppercase track-sm font-medium hover:bg-brasslight transition-colors duration-300">
+        Termin anrufen
+      </a>
+      <a href="https://www.google.com/maps/search/?api=1&query=SOIXANTE-DOUZE+Herzog-Rudolf-Stra%C3%9Fe+2+M%C3%BCnchen" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-sand text-sm uppercase track-sm border-b border-transparent hover:border-brass hover:text-brasslight transition-colors duration-300">
+        Route zum Salon →
+      </a>
+    </div>
+
+    <!-- Rating Badge -->
+    <div class="reveal reveal-delay-3 mt-12 flex items-center gap-4">
+      <div class="flex text-brass text-lg" aria-hidden="true">★★★★★</div>
+      <p class="text-sm text-sand"><span class="text-bone font-semibold">4,9</span> · 223 Bewertungen bei Google</p>
+    </div>
+  </div>
+</section>
+
+<!-- Philosophie -->
+<section id="philosophie" class="relative py-24 sm:py-36 bg-ink">
+  <div class="mx-auto max-w-7xl px-5 sm:px-8">
+    <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+      <div class="lg:col-span-4">
+        <p class="reveal track-sm text-[11px] uppercase text-brass mb-6">01 — Philosophie</p>
+        <h2 class="reveal font-serif text-4xl sm:text-5xl leading-tight text-bone">
+          Jedes Haar erzählt eine <span class="italic text-brasslight">Geschichte.</span>
+        </h2>
+        <div class="line-grow h-px bg-brass/50 mt-8"></div>
+      </div>
+      <div class="lg:col-span-8 space-y-6 text-sand/85 text-base sm:text-lg leading-relaxed">
+        <p class="reveal">Unsere Mission ist es, Ihre Persönlichkeit mit der perfekten Frisur zu unterstreichen. Dafür setzen wir auf Qualität statt Quantität, auf präzise Schnitte und fein abgestimmte Farben.</p>
+        <p class="reveal reveal-delay-1">Unsere Stylist*innen bilden sich regelmäßig weiter – bei Schulungen und internationalen Seminaren – um immer auf dem neuesten Stand der Trends, Techniken und Inspirationen zu bleiben. Wir sind weltoffen, divers, herzlich – und freuen uns darauf, Sie kennenzulernen.</p>
+      </div>
+    </div>
+
+    <!-- Angebot / Werte als Karten -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-20">
+      <article class="reveal card-tilt bg-charcoal border border-white/5 p-8 hover:border-brass/40">
+        <span class="font-serif text-3xl text-brass">✂</span>
+        <h3 class="font-serif text-xl text-bone mt-5">Präzise Schnitte</h3>
+        <p class="text-sand/70 text-sm mt-3 leading-relaxed">Individuell auf Kopfform, Haarstruktur und Persönlichkeit abgestimmt.</p>
+      </article>
+      <article class="reveal reveal-delay-1 card-tilt bg-charcoal border border-white/5 p-8 hover:border-brass/40">
+        <span class="font-serif text-3xl text-brass">◑</span>
+        <h3 class="font-serif text-xl text-bone mt-5">Feine Farben</h3>
+        <p class="text-sand/70 text-sm mt-3 leading-relaxed">Nachhaltige Färbetechniken für gesundes, glänzendes Haar.</p>
+      </article>
+      <article class="reveal reveal-delay-2 card-tilt bg-charcoal border border-white/5 p-8 hover:border-brass/40">
+        <span class="font-serif text-3xl text-brass">✦</span>
+        <h3 class="font-serif text-xl text-bone mt-5">Styling &amp; Make-up</h3>
+        <p class="text-sand/70 text-sm mt-3 leading-relaxed">Vom Alltagslook bis zum großen Auftritt – ganzheitlich gedacht.</p>
+      </article>
+      <article class="reveal reveal-delay-3 card-tilt bg-charcoal border border-white/5 p-8 hover:border-brass/40">
+        <span class="font-serif text-3xl text-brass">❋</span>
+        <h3 class="font-serif text-xl text-bone mt-5">Premium Pflege</h3>
+        <p class="text-sand/70 text-sm mt-3 leading-relaxed">Exklusive, umweltfreundliche Produkte – Friseurqualität made in Germany.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Salon / Lage + Galerie -->
+<section id="salon" class="relative py-24 sm:py-36 bg-charcoal">
+  <div class="mx-auto max-w-7xl px-5 sm:px-8">
+    <div class="grid lg:grid-cols-2 gap-12 items-end mb-16">
+      <div>
+        <p class="reveal track-sm text-[11px] uppercase text-brass mb-6">02 — Der Salon</p>
+        <h2 class="reveal font-serif text-4xl sm:text-5xl leading-tight text-bone">
+          Zentral, modern, <span class="italic text-brasslight">entspannt.</span>
+        </h2>
+      </div>
+      <p class="reveal reveal-delay-1 text-sand/85 leading-relaxed">
+        Unser Salon in der Herzog-Rudolf-Straße liegt nur wenige Gehminuten vom Gärtnerplatz und der Maximilianstraße entfernt. Inmitten des trendigen Lehels erwartet Sie ein helles, urbanes Ambiente mit gemütlicher Atmosphäre und herzlicher Willkommenskultur. Eröffnet 2023 – mit einem Konzept, das sich von klassischen Friseurgeschäften abhebt.
+      </p>
+    </div>
+
+    <!-- Galerie -->
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 auto-rows-[42vw] sm:auto-rows-[24vw] lg:auto-rows-[16vw]">
+      <figure class="reveal gallery-item relative overflow-hidden col-span-2 row-span-1 lg:row-span-2">
+        <img loading="lazy" class="h-full w-full object-cover" src="https://lh3.googleusercontent.com/place-photos/AJRVUZPu1TQaOkIUzVDEG--GxZY2XCYCBYN6pqzb9yw3zPo7H5GxSqsTrNCrqxVWMLTSwgyyN6cmB80_RvAYwL5sluPB1WwBAq3PAGCMitXk9vRCV2tZIpsJ8Cf9vRVZ_u4T6AlG3j9rXUl-BHBmAM6lfDYpBw=s4800-w1600-h1200" alt="Stylingbereich im SOIXANTE-DOUZE Salon">
+      </figure>
+      <figure class="reveal reveal-delay-1 gallery-item relative overflow-hidden">
+        <img loading="lazy" class="h-full w-full object-cover" src="https://lh3.googleusercontent.com/place-photos/AJRVUZOAHMglvpFvza0wjImpQNKHwuotDRX_9Kg6yge18Ql3VKw4_z1BWkh4dRdh9_LWjw0jCWmwjztA5Q9jsT8mHybZ8IeUqPg-3m93sE33J8ZlVEwalLuDjlTAG7UTi-wkm7AKiN_YoSmzyNac-g=s4800-w1600-h1200" alt="Detailaufnahme aus dem Friseursalon">
+      </figure>
+      <figure class="reveal reveal-delay-2 gallery-item relative overflow-hidden">
+        <img loading="lazy" class="h-full w-full object-cover" src="https://lh3.googleusercontent.com/place-photos/AJRVUZN5oBnmJJC9nawPhsWgakLsoSob6-HQpTMEIohBmZjvM9ImSlD97pPVWWTt2bnFncv8rdJBTDE0FAzpOT6R0yC8tGhgp_nfg9Pf_Ov_20DMVgrNIRaOtNjL7WXiX2NSYqsyuFstH0PtHlVX=s4800-w1600-h1200" alt="Ambiente und Interieur des Salons im Lehel">
+      </figure>
+      <figure class="reveal reveal-delay-3 gallery-item relative overflow-hidden col-span-2">
+        <img loading="lazy" class="h-full w-full object-cover" src="https://lh3.googleusercontent.com/place-photos/AJRVUZPVCpepOvuaJiame51q7qfngpssARosMw2bxHFKoaBg6ZWTRPA3oH14ZLztIHLyKX-5EhbFHGmSIsqAE1Zwm5cehoGZZjsnIku5W8EklgJXHX-Dx6-wW4AWOfV0Y9CkN6bfWhTLNRXI0fnO=s4800-w1600-h1200" alt="Weitere Innenansicht des SOIXANTE-DOUZE Friseursalons">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- Rezensionen -->
+<section id="stimmen" class="relative py-24 sm:py-36 bg-ink">
+  <div class="mx-auto max-w-7xl px-5 sm:px-8">
+    <div class="flex flex-wrap items-end justify-between gap-6 mb-16">
+      <div>
+        <p class="reveal track-sm text-[11px] uppercase text-brass mb-6">03 — Stimmen</p>
+        <h2 class="reveal font-serif text-4xl sm:text-5xl leading-tight text-bone max-w-xl">
+          Was unsere Gäste <span class="italic text-brasslight">sagen.</span>
+        </h2>
+      </div>
+      <div class="reveal reveal-delay-1 text-right">
+        <div class="flex text-brass text-xl justify-end" aria-hidden="true">★★★★★</div>
+        <p class="text-sand text-sm mt-2">4,9 Sterne · 223 Google-Bewertungen</p>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <blockquote class="reveal card-tilt bg-charcoal border border-white/5 p-8 flex flex-col hover:border-brass/40">
+        <div class="flex text-brass text-sm mb-5" aria-hidden="true">★★★★★</div>
+        <p class="text-sand/90 leading-relaxed text-[15px] grow">I booked a full glam make up and hair done by Patricia for a 1920s inspired party I went to, the result made me super happy as the make up turned exactly how I wanted and the hair as well! Patricia is an amazing make up artist and person, she takes time to understand what you like… The entire team of the salon is amazing as well and very professional, it's always a pleasure to come back again. 10/10 ⭐️</p>
+        <footer class="mt-6 pt-5 border-t border-white/10">
+          <p class="font-serif text-bone">Ms Erin</p>
+          <p class="text-xs uppercase track-sm text-brasslight/70 mt-1">vor 7 Monaten</p>
+        </footer>
+      </blockquote>
+
+      <blockquote class="reveal reveal-delay-1 card-tilt bg-charcoal border border-white/5 p-8 flex flex-col hover:border-brass/40">
+        <div class="flex text-brass text-sm mb-5" aria-hidden="true">★★★★★</div>
+        <p class="text-sand/90 leading-relaxed text-[15px] grow">Sabrina is the best hairdresser! I am always more than satisfied and she is extremely polite. I highly recommend her.</p>
+        <footer class="mt-6 pt-5 border-t border-white/10">
+          <p class="font-serif text-bone">Helen Klein</p>
+          <p class="text-xs uppercase track-sm text-brasslight/70 mt-1">vor 6 Monaten</p>
+        </footer>
+      </blockquote>
+
+      <blockquote class="reveal reveal-delay-2 card-tilt bg-charcoal border border-white/5 p-8 flex flex-col hover:border-brass/40">
+        <div class="flex text-brass text-sm mb-5" aria-hidden="true">★★★★★</div>
+        <p class="text-sand/90 leading-relaxed text-[15px] grow">I've been getting my men's haircut and styling done by Dave for almost two years now, and I couldn't be happier… He truly knows his craft. Even if you're not quite sure how to describe what you want, he somehow just gets it… Beyond his skills, it's his character that keeps me coming back: thoughtful, warm, funny, and just a genuinely good person. Highly recommend—both for the cut and the experience.</p>
+        <footer class="mt-6 pt-5 border-t border-white/10">
+          <p class="font-serif text-bone">C. S.</p>
+          <p class="text-xs uppercase track-sm text-brasslight/70 mt-1">vor einem Jahr</p>
+        </footer>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- Öffnungszeiten -->
+<section id="zeiten" class="relative py-24 sm:py-36 bg-charcoal">
+  <div class="mx-auto max-w-7xl px-5 sm:px-8 grid lg:grid-cols-2 gap-16 items-center">
+    <div>
+      <p class="reveal track-sm text-[11px] uppercase text-brass mb-6">04 — Öffnungszeiten</p>
+      <h2 class="reveal font-serif text-4xl sm:text-5xl leading-tight text-bone mb-8">
+        Wann wir für Sie <span class="italic text-brasslight">da sind.</span>
+      </h2>
+      <p class="reveal reveal-delay-1 text-sand/80 leading-relaxed max-w-md">
+        Termine ganz bequem telefonisch oder online. Ein perfekter Zwischenstopp beim Shopping oder nach der Arbeit – zentral in der Innenstadt mit guter Anbindung und Parkhäusern in direkter Umgebung.
+      </p>
+    </div>
+    <div class="reveal reveal-delay-1">
+      <dl class="divide-y divide-white/10 border-t border-b border-white/10">
+        <div class="flex justify-between py-4"><dt class="text-sand">Montag</dt><dd class="text-bone tabular-nums">10:00 – 19:00</dd></div>
+        <div class="flex justify-between py-4"><dt class="text-sand">Dienstag</dt><dd class="text-bone tabular-nums">10:00 – 19:00</dd></div>
+        <div class="flex justify-between py-4"><dt class="text-sand">Mittwoch</dt><dd class="text-bone tabular-nums">10:00 – 19:00</dd></div>
+        <div class="flex justify-between py-4"><dt class="text-sand">Donnerstag</dt><dd class="text-bone tabular-nums">10:00 – 19:00</dd></div>
+        <div class="flex justify-between py-4"><dt class="text-sand">Freitag</dt><dd class="text-bone tabular-nums">10:00 – 19:00</dd></div>
+        <div class="flex justify-between py-4"><dt class="text-sand">Samstag</dt><dd class="text-bone tabular-nums">09:00 – 15:00</dd></div>
+        <div class="flex justify-between py-4"><dt class="text-sand/60">Sonntag</dt><dd class="text-brasslight/80 uppercase track-sm text-sm">Geschlossen</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- Kontakt -->
+<section id="kontakt" class="relative py-24 sm:py-36 bg-ink">
+  <div class="mx-auto max-w-7xl px-5 sm:px-8">
+    <p class="reveal track-sm text-[11px] uppercase text-brass mb-6">05 — Kontakt</p>
+    <h2 class="reveal font-serif text-4xl sm:text-6xl leading-tight text-bone max-w-3xl mb-16">
+      Wir freuen uns darauf, Sie <span class="italic text-brasslight">kennenzulernen.</span>
+    </h2>
+
+    <div class="grid sm:grid-cols-3 gap-8 sm:gap-12">
+      <div class="reveal">
+        <p class="track-sm text-[11px] uppercase text-brass mb-4">Adresse</p>
+        <p class="text-bone text-lg leading-relaxed">Herzog-Rudolf-Straße 2<br>80539 München</p>
+        <a href="https://www.google.com/maps/search/?api=1&query=SOIXANTE-DOUZE+Herzog-Rudolf-Stra%C3%9Fe+2+M%C3%BCnchen" target="_blank" rel="noopener" class="inline-block mt-4 text-brasslight text-sm border-b border-brass/40 hover:border-brasslight transition-colors">Auf Google Maps öffnen →</a>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <p class="track-sm text-[11px] uppercase text-brass mb-4">Telefon</p>
+        <a href="tel:+498974849366" class="text-bone text-lg hover:text-brasslight transition-colors">+49 89 74849366</a>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <p class="track-sm text-[11px] uppercase text-brass mb-4">E-Mail</p>
+        <a href="mailto:contact@soixante-douze.com" class="text-bone text-lg hover:text-brasslight transition-colors break-words">contact@soixante-douze.com</a>
+      </div>
+    </div>
+
+    <div class="reveal mt-16">
+      <a href="tel:+498974849366" class="inline-flex items-center gap-3 bg-brass text-ink px-9 py-4 text-sm uppercase track-sm font-medium hover:bg-brasslight transition-colors duration-300">
+        Jetzt Termin vereinbaren
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-charcoal border-t border-white/10 py-14">
+  <div class="mx-auto max-w-7xl px-5 sm:px-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+    <div>
+      <p class="font-serif text-xl text-bone">SOIXANTE-DOUZE</p>
+      <p class="track-sm text-[11px] uppercase text-brasslight/70 mt-1">by Denny Sheravo · Friseur München</p>
+    </div>
+    <nav class="flex flex-wrap items-center gap-x-8 gap-y-3 text-sm text-sand/70">
+      <a href="/impressum" class="hover:text-brasslight transition-colors">Impressum</a>
+      <a href="/datenschutz" class="hover:text-brasslight transition-colors">Datenschutz</a>
+      <a href="#top" class="hover:text-brasslight transition-colors">Nach oben ↑</a>
+    </nav>
+    <p class="text-xs text-sand/50">© <span id="year">2026</span> SOIXANTE-DOUZE München</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Jahr
+  var y = document.getElementById('year');
+  if (y) y.textContent = new Date().getFullYear();
+
+  // Scroll-Reveal
+  var revealEls = document.querySelectorAll('.reveal, .line-grow');
+  if (reduce || !('IntersectionObserver' in window)) {
+    revealEls.forEach(function (el) { el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    revealEls.forEach(function (el) { io.observe(el); });
+  }
+
+  // Header-Zustand beim Scrollen
+  var header = document.querySelector('[data-header]');
+  function onScroll() {
+    var s = window.pageYOffset || document.documentElement.scrollTop;
+    if (header) {
+      if (s > 40) header.classList.add('bg-ink/85','backdrop-blur-md','shadow-lg','shadow-black/20');
+      else header.classList.remove('bg-ink/85','backdrop-blur-md','shadow-lg','shadow-black/20');
+    }
+    // Hero-Parallax
+    if (!reduce) {
+      var px = document.querySelector('[data-parallax]');
+      if (px && s < window.innerHeight) {
+        px.style.transform = 'translate3d(0,' + (s * 0.18) + 'px,0)';
+      }
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Karten: sanfter 3D-Tilt bei Mausbewegung (nur feine Zeiger)
+  if (!reduce && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    document.querySelectorAll('.card-tilt').forEach(function (card) {
+      card.addEventListener('mousemove', function (ev) {
+        var r = card.getBoundingClientRect();
+        var cx = (ev.clientX - r.left) / r.width - 0.5;
+        var cy = (ev.clientY - r.top) / r.height - 0.5;
+        card.style.transform = 'perspective(900px) rotateX(' + (-cy * 4).toFixed(2) + 'deg) rotateY(' + (cx * 4).toFixed(2) + 'deg) translateZ(0)';
+      });
+      card.addEventListener('mouseleave', function () {
+        card.style.transform = '';
+      });
+    });
+  }
+})();
+</script>
+</body>
+</html>
