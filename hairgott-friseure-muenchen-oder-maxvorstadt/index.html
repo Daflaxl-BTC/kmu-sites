@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HairGott Friseure München | Friseursalon in der Maxvorstadt</title>
+<meta name="description" content="HairGott Friseure in München-Maxvorstadt, Schellingstraße 57. Mit 4,9 Sternen bei 483 Google-Bewertungen. Jetzt Termin sichern – 08:00 bis 21:00 Uhr geöffnet.">
+<meta property="og:title" content="HairGott Friseure München | Maxvorstadt">
+<meta property="og:description" content="Friseursalon in der Münchner Maxvorstadt · 4,9 ★ bei 483 Bewertungen.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://lh3.googleusercontent.com/place-photos/AJRVUZPG9stdE2FIDWg3LjJZ_pLvgBcm3Bg-w2f3vWpuc8yfxwLLh2q9OPXHGzQBYviFSlTujRlrah_4d2a6jspSMejUrOvjDuyrgXhtYe-MMXRu1FD84vER1C-ERbNyYwQgIsTdB4T1Fr39wwbg4KWXtforjw=s4800-w480-h270">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        ink: '#111014',
+        charcoal: '#1b1a20',
+        champagne: '#d8b98a',
+        gold: '#c9a35f',
+        cream: '#f6f1ea',
+      },
+      fontFamily: {
+        display: ['"Playfair Display"', 'Georgia', 'Cambria', 'serif'],
+        body: ['ui-sans-serif', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+      },
+    },
+  },
+};
+</script>
+<style>
+  :root { color-scheme: dark; }
+  body { font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  .font-display { font-family: Georgia, "Times New Roman", serif; letter-spacing: -.01em; }
+
+  /* Hero parallax / ken-burns */
+  @keyframes kenburns {
+    0%   { transform: scale(1.12) translate3d(0,0,0); }
+    100% { transform: scale(1.24) translate3d(-1.5%, -2%, 0); }
+  }
+  .hero-img { animation: kenburns 22s ease-in-out infinite alternate; will-change: transform; }
+
+  /* Flowing signature waves */
+  @keyframes drift { to { transform: translateX(-50%); } }
+  .wave-strip { animation: drift 18s linear infinite; }
+  .wave-strip.slow { animation-duration: 30s; opacity:.5; }
+  .wave-strip.fast { animation-duration: 12s; opacity:.35; }
+
+  /* Floating scissor motif */
+  @keyframes floaty {
+    0%,100% { transform: translateY(0) rotate(-8deg); }
+    50%     { transform: translateY(-14px) rotate(-2deg); }
+  }
+  .floaty { animation: floaty 7s ease-in-out infinite; will-change: transform; }
+
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+  .shimmer {
+    background: linear-gradient(90deg, #c9a35f 0%, #f3e3c4 45%, #c9a35f 90%);
+    background-size: 200% auto;
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    animation: shimmer 6s linear infinite;
+  }
+
+  /* Scroll reveal */
+  .reveal { opacity: 0; transform: translateY(34px); transition: opacity .9s cubic-bezier(.16,.7,.3,1), transform .9s cubic-bezier(.16,.7,.3,1); }
+  .reveal.in { opacity: 1; transform: none; }
+  .reveal.d1 { transition-delay: .08s; }
+  .reveal.d2 { transition-delay: .16s; }
+  .reveal.d3 { transition-delay: .24s; }
+
+  .rule { height:1px; background: linear-gradient(90deg, transparent, rgba(216,185,138,.55), transparent); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-img, .wave-strip, .floaty, .shimmer { animation: none !important; }
+    .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body class="bg-ink text-cream antialiased selection:bg-champagne selection:text-ink">
+
+<!-- Header -->
+<header class="fixed top-0 inset-x-0 z-50 transition-all duration-500" id="siteHeader">
+  <nav class="max-w-6xl mx-auto px-5 sm:px-8 flex items-center justify-between h-16 md:h-20">
+    <a href="#top" class="group flex items-center gap-2.5">
+      <span class="grid place-items-center w-9 h-9 rounded-full border border-champagne/50 text-champagne">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="w-5 h-5">
+          <circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/>
+          <path d="M8.5 8.2 20 17M8.5 15.8 20 7"/>
+        </svg>
+      </span>
+      <span class="font-display text-lg md:text-xl tracking-tight">HairGott</span>
+    </a>
+    <div class="hidden md:flex items-center gap-8 text-sm text-cream/75">
+      <a href="#salon" class="hover:text-champagne transition-colors">Salon</a>
+      <a href="#galerie" class="hover:text-champagne transition-colors">Galerie</a>
+      <a href="#stimmen" class="hover:text-champagne transition-colors">Stimmen</a>
+      <a href="#zeiten" class="hover:text-champagne transition-colors">Öffnungszeiten</a>
+      <a href="#kontakt" class="hover:text-champagne transition-colors">Kontakt</a>
+    </div>
+    <a href="tel:+49892722462" class="inline-flex items-center gap-2 rounded-full bg-champagne text-ink text-sm font-medium px-4 py-2 hover:bg-cream transition-colors">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="w-4 h-4"><path d="M4 5c0 8.3 6.7 15 15 15 .9 0 1.6-.7 1.6-1.6v-2.3c0-.7-.5-1.3-1.2-1.5l-2.9-.7c-.6-.1-1.2.1-1.5.6l-.7 1c-2.3-1-4.2-2.9-5.2-5.2l1-.7c.5-.3.7-.9.6-1.5l-.7-2.9C10.2 4.3 9.6 3.8 8.9 3.8H6.6C5.7 3.8 5 4.5 5 5.4"/></svg>
+      <span class="hidden sm:inline">Anrufen</span>
+    </a>
+  </nav>
+</header>
+
+<main id="top">
+
+<!-- Hero -->
+<section class="relative min-h-[100svh] flex items-end overflow-hidden">
+  <!-- Parallax photo -->
+  <div class="absolute inset-0 -z-10" id="heroWrap">
+    <img class="hero-img absolute inset-0 w-full h-full object-cover"
+         src="https://lh3.googleusercontent.com/place-photos/AJRVUZPG9stdE2FIDWg3LjJZ_pLvgBcm3Bg-w2f3vWpuc8yfxwLLh2q9OPXHGzQBYviFSlTujRlrah_4d2a6jspSMejUrOvjDuyrgXhtYe-MMXRu1FD84vER1C-ERbNyYwQgIsTdB4T1Fr39wwbg4KWXtforjw=s4800-w480-h270"
+         alt="Innenansicht des Friseursalons HairGott in München-Maxvorstadt">
+    <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/70 to-ink/40"></div>
+    <div class="absolute inset-0 bg-ink/30"></div>
+  </div>
+
+  <!-- Signature flowing scissor motif -->
+  <div class="floaty pointer-events-none absolute right-6 sm:right-16 top-28 sm:top-32 text-champagne/70 z-0" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" class="w-20 h-20 sm:w-28 sm:h-28 drop-shadow-[0_0_25px_rgba(201,163,95,.35)]">
+      <circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/>
+      <path d="M8.5 8.2 20 17M8.5 15.8 20 7"/>
+    </svg>
+  </div>
+
+  <!-- Flowing waves at the seam -->
+  <div class="absolute bottom-0 inset-x-0 h-40 overflow-hidden pointer-events-none" aria-hidden="true">
+    <svg class="wave-strip slow absolute bottom-6 left-0 w-[200%] h-24 text-champagne" viewBox="0 0 1200 60" preserveAspectRatio="none" fill="none" stroke="currentColor" stroke-width="1">
+      <path d="M0 40 Q150 5 300 40 T600 40 T900 40 T1200 40"/>
+    </svg>
+    <svg class="wave-strip absolute bottom-2 left-0 w-[200%] h-24 text-gold" viewBox="0 0 1200 60" preserveAspectRatio="none" fill="none" stroke="currentColor" stroke-width="1.2">
+      <path d="M0 45 Q150 12 300 45 T600 45 T900 45 T1200 45"/>
+    </svg>
+    <svg class="wave-strip fast absolute bottom-10 left-0 w-[200%] h-24 text-cream" viewBox="0 0 1200 60" preserveAspectRatio="none" fill="none" stroke="currentColor" stroke-width=".8">
+      <path d="M0 35 Q150 0 300 35 T600 35 T900 35 T1200 35"/>
+    </svg>
+  </div>
+
+  <div class="relative z-10 w-full max-w-6xl mx-auto px-5 sm:px-8 pb-24 md:pb-28">
+    <p class="reveal in text-champagne tracking-[.28em] text-xs sm:text-sm uppercase mb-5">Friseursalon · München-Maxvorstadt</p>
+    <h1 class="reveal in font-display text-5xl sm:text-7xl md:text-8xl leading-[.95] max-w-4xl">
+      <span class="shimmer">HairGott</span><br>Friseure
+    </h1>
+    <p class="reveal in d1 mt-6 max-w-xl text-cream/80 text-lg leading-relaxed">
+      Dein Salon in der Schellingstraße. Handwerk, Ruhe und ein Schnitt, der zu dir passt – mitten im Herzen der Maxvorstadt.
+    </p>
+
+    <div class="reveal in d2 mt-8 flex flex-wrap items-center gap-4">
+      <a href="tel:+49892722462" class="inline-flex items-center gap-2 rounded-full bg-champagne text-ink font-medium px-6 py-3.5 hover:bg-cream transition-colors">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="w-5 h-5"><path d="M4 5c0 8.3 6.7 15 15 15 .9 0 1.6-.7 1.6-1.6v-2.3c0-.7-.5-1.3-1.2-1.5l-2.9-.7c-.6-.1-1.2.1-1.5.6l-.7 1c-2.3-1-4.2-2.9-5.2-5.2l1-.7c.5-.3.7-.9.6-1.5l-.7-2.9C10.2 4.3 9.6 3.8 8.9 3.8H6.6C5.7 3.8 5 4.5 5 5.4"/></svg>
+        Termin telefonisch sichern
+      </a>
+      <a href="https://www.google.com/maps/search/?api=1&query=HairGott+Friseure+Schellingstra%C3%9Fe+57+80799+M%C3%BCnchen" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-full border border-cream/25 px-6 py-3.5 hover:border-champagne hover:text-champagne transition-colors">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" class="w-5 h-5"><path d="M12 21s7-6.4 7-11a7 7 0 1 0-14 0c0 4.6 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+        Route öffnen
+      </a>
+    </div>
+
+    <!-- Rating badge -->
+    <div class="reveal in d3 mt-9 inline-flex items-center gap-3 rounded-full bg-white/5 backdrop-blur px-5 py-3 border border-white/10">
+      <span class="text-champagne text-lg tracking-wide" aria-hidden="true">★★★★★</span>
+      <span class="text-sm text-cream/85"><strong class="text-cream">4,9</strong> · 483 Bewertungen bei Google</span>
+    </div>
+  </div>
+
+  <div class="absolute bottom-5 left-1/2 -translate-x-1/2 z-10 text-cream/50 text-xs tracking-widest hidden sm:block">SCROLLEN</div>
+</section>
+
+<!-- Salon / Intro -->
+<section id="salon" class="relative py-24 md:py-32 bg-charcoal">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8 grid md:grid-cols-12 gap-12 items-center">
+    <div class="md:col-span-7 reveal">
+      <p class="text-champagne tracking-[.24em] text-xs uppercase mb-4">Über den Salon</p>
+      <h2 class="font-display text-4xl sm:text-5xl leading-tight mb-6">Ein Ort, an dem<br>der Schnitt zu dir kommt.</h2>
+      <p class="text-cream/75 text-lg leading-relaxed mb-4">
+        HairGott Friseure liegt in der Schellingstraße 57, mitten in der Münchner Maxvorstadt. Ein Team, das zuhört, und eine Atmosphäre, in der du zur Ruhe kommst, während wir arbeiten.
+      </p>
+      <p class="text-cream/60 leading-relaxed">
+        Wie sehr das ankommt, zeigen die Gäste selbst: <strong class="text-champagne">4,9 von 5 Sternen</strong> aus <strong class="text-cream/90">483 Google-Bewertungen</strong>. Kein Zufall, sondern das Ergebnis von echtem Handwerk.
+      </p>
+    </div>
+    <div class="md:col-span-5 grid grid-cols-2 gap-4">
+      <div class="reveal d1 rounded-2xl bg-white/5 border border-white/10 p-6 text-center">
+        <div class="font-display text-4xl text-champagne">4,9</div>
+        <div class="text-xs uppercase tracking-widest text-cream/55 mt-2">Google-Sterne</div>
+      </div>
+      <div class="reveal d2 rounded-2xl bg-white/5 border border-white/10 p-6 text-center">
+        <div class="font-display text-4xl text-champagne">483</div>
+        <div class="text-xs uppercase tracking-widest text-cream/55 mt-2">Bewertungen</div>
+      </div>
+      <div class="reveal d1 col-span-2 rounded-2xl bg-white/5 border border-white/10 p-6 flex items-center gap-4">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-8 h-8 text-champagne shrink-0"><path d="M12 21s7-6.4 7-11a7 7 0 1 0-14 0c0 4.6 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+        <div>
+          <div class="text-cream/90 font-medium">Maxvorstadt</div>
+          <div class="text-sm text-cream/55">Schellingstraße 57 · 80799 München</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Gallery -->
+<section id="galerie" class="py-24 md:py-32 bg-ink">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8">
+    <div class="reveal flex items-end justify-between gap-6 mb-12">
+      <div>
+        <p class="text-champagne tracking-[.24em] text-xs uppercase mb-4">Einblicke</p>
+        <h2 class="font-display text-4xl sm:text-5xl">Unser Salon</h2>
+      </div>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-3 auto-rows-[200px] md:auto-rows-[260px] gap-4">
+      <figure class="reveal group relative overflow-hidden rounded-2xl col-span-2 row-span-2">
+        <img loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/place-photos/AJRVUZMKHFESq4uSHaOcQdApm2k0rrZr8T_Nn5aLf9RAZFPRXEjWBx26-VwVFiOcPpGN9QZyV_6YP3VV0_tiNhLeOKFa8n8pryeD542mUm1Wk2jAL_xYfB7nOs3xdt7xbysUfdkVSwqKENmo4Mb7BQ=s4800-w1600-h1200" alt="Blick in den Friseursalon HairGott mit Arbeitsplätzen">
+      </figure>
+      <figure class="reveal d1 group relative overflow-hidden rounded-2xl">
+        <img loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/place-photos/AJRVUZOYaNghxNobKqEz4jo7tDdCKbyXiRAL34PcnpvKpXyCtPnAoAOT_FdY2HKks07q8b7edQTnrEsDr83avIbrrjRFHg8T4X8eyr5HPe5BQuA3cfN6aD7DX4oPDhYA80qnrnggjVzghOk-aibZ4g=s4800-w1600-h1200" alt="Detailaufnahme im Salon HairGott">
+      </figure>
+      <figure class="reveal d2 group relative overflow-hidden rounded-2xl">
+        <img loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/place-photos/AJRVUZP8Hz6lR-UscSG7fpANUSrjILigEjSO8ihJjGlGZHmVl1Pc4aVCKID4JsTmimUj7aNwlZw8WMnx3v1-wR9WCs85JAyGCU_u52GT6rkEXc0DV22nXZfi8Zvhi347QGr3iqwA7-2JYc4bn0WSfkqp80BBJw=s4800-w1600-h1200" alt="Arbeitsbereich des Friseursalons HairGott">
+      </figure>
+      <figure class="reveal d1 group relative overflow-hidden rounded-2xl col-span-2">
+        <img loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/place-photos/AJRVUZPpxu9jno3XB9UvQcztwJBRjfaGRqfUDX7bi48s3cR9Oh5zPx9ToqapTBSGTaEguHurIszBrJnG5ofPiDbI9Ab8x5ZZxBFKjLrUtnNg6KFaa00rN3tmRWuGXATuT-73A9CTgYoWNjwezFrUpg=s4800-w1600-h1200" alt="Ambiente im Friseursalon HairGott in der Maxvorstadt">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- Reviews -->
+<section id="stimmen" class="py-24 md:py-32 bg-charcoal relative overflow-hidden">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8">
+    <div class="reveal text-center mb-14">
+      <p class="text-champagne tracking-[.24em] text-xs uppercase mb-4">Stimmen unserer Gäste</p>
+      <h2 class="font-display text-4xl sm:text-5xl">4,9 ★ bei Google</h2>
+      <p class="text-cream/55 mt-3">Aus 483 Bewertungen – hier ein paar davon.</p>
+    </div>
+    <div class="grid md:grid-cols-2 gap-6">
+      <blockquote class="reveal rounded-2xl bg-white/5 border border-white/10 p-8">
+        <div class="text-champagne text-lg mb-4" aria-label="5 von 5 Sternen">★★★★★</div>
+        <p class="text-cream/85 leading-relaxed">“I’ve been here twice already with the hairstylist Shayenne, and I’m so glad I finally found a salon I truly like. I had been struggling to find the right place for a long time. The atmosphere is amazing, and Shayenne is a true professional. She perfectly understands the hairstyle I want and always takes it to another level so it suits me perfectly. Thank you so much, I can finally go out feeling great with an amazing haircut. :)”</p>
+        <footer class="mt-6 flex items-center gap-3">
+          <span class="grid place-items-center w-9 h-9 rounded-full bg-champagne/20 text-champagne font-medium">L</span>
+          <span><span class="block text-cream/90 font-medium">Lucie Vicherková</span><span class="text-xs text-cream/45">vor einem Monat</span></span>
+        </footer>
+      </blockquote>
+      <blockquote class="reveal d1 rounded-2xl bg-white/5 border border-white/10 p-8">
+        <div class="text-champagne text-lg mb-4" aria-label="5 von 5 Sternen">★★★★★</div>
+        <p class="text-cream/85 leading-relaxed">“Sammy did an amazing job, he created a super relaxing atmosphere and made my hair absolutely beautiful. 10/10 recommend:)”</p>
+        <footer class="mt-6 flex items-center gap-3">
+          <span class="grid place-items-center w-9 h-9 rounded-full bg-champagne/20 text-champagne font-medium">H</span>
+          <span><span class="block text-cream/90 font-medium">Hannah Glasgow</span><span class="text-xs text-cream/45">vor einem Monat</span></span>
+        </footer>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- Opening hours + Contact -->
+<section id="zeiten" class="py-24 md:py-32 bg-ink">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8 grid md:grid-cols-2 gap-12 lg:gap-20">
+    <!-- Hours -->
+    <div class="reveal">
+      <p class="text-champagne tracking-[.24em] text-xs uppercase mb-4">Öffnungszeiten</p>
+      <h2 class="font-display text-4xl sm:text-5xl mb-8">Wann wir für dich da sind</h2>
+      <dl class="divide-y divide-white/10 border-y border-white/10">
+        <div class="flex justify-between py-3.5"><dt class="text-cream/70">Montag</dt><dd class="text-cream/90 tabular-nums">08:00 – 20:00 Uhr</dd></div>
+        <div class="flex justify-between py-3.5"><dt class="text-cream/70">Dienstag</dt><dd class="text-cream/90 tabular-nums">09:00 – 21:00 Uhr</dd></div>
+        <div class="flex justify-between py-3.5"><dt class="text-cream/70">Mittwoch</dt><dd class="text-cream/90 tabular-nums">09:00 – 21:00 Uhr</dd></div>
+        <div class="flex justify-between py-3.5"><dt class="text-cream/70">Donnerstag</dt><dd class="text-cream/90 tabular-nums">09:00 – 21:00 Uhr</dd></div>
+        <div class="flex justify-between py-3.5"><dt class="text-cream/70">Freitag</dt><dd class="text-cream/90 tabular-nums">09:00 – 21:00 Uhr</dd></div>
+        <div class="flex justify-between py-3.5"><dt class="text-cream/70">Samstag</dt><dd class="text-cream/90 tabular-nums">08:00 – 17:00 Uhr</dd></div>
+        <div class="flex justify-between py-3.5"><dt class="text-cream/45">Sonntag</dt><dd class="text-cream/45">Geschlossen</dd></div>
+      </dl>
+    </div>
+
+    <!-- Contact -->
+    <div id="kontakt" class="reveal d1">
+      <p class="text-champagne tracking-[.24em] text-xs uppercase mb-4">Kontakt</p>
+      <h2 class="font-display text-4xl sm:text-5xl mb-8">Vorbeikommen &amp; anrufen</h2>
+      <div class="space-y-4">
+        <a href="https://www.google.com/maps/search/?api=1&query=HairGott+Friseure+Schellingstra%C3%9Fe+57+80799+M%C3%BCnchen" target="_blank" rel="noopener noreferrer" class="flex items-start gap-4 rounded-2xl bg-white/5 border border-white/10 p-5 hover:border-champagne transition-colors group">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="w-6 h-6 text-champagne shrink-0 mt-0.5"><path d="M12 21s7-6.4 7-11a7 7 0 1 0-14 0c0 4.6 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <div>
+            <div class="text-cream/90 font-medium group-hover:text-champagne transition-colors">Schellingstraße 57</div>
+            <div class="text-sm text-cream/55">80799 München-Maxvorstadt · Auf Google Maps öffnen</div>
+          </div>
+        </a>
+        <a href="tel:+49892722462" class="flex items-start gap-4 rounded-2xl bg-white/5 border border-white/10 p-5 hover:border-champagne transition-colors group">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="w-6 h-6 text-champagne shrink-0 mt-0.5"><path d="M4 5c0 8.3 6.7 15 15 15 .9 0 1.6-.7 1.6-1.6v-2.3c0-.7-.5-1.3-1.2-1.5l-2.9-.7c-.6-.1-1.2.1-1.5.6l-.7 1c-2.3-1-4.2-2.9-5.2-5.2l1-.7c.5-.3.7-.9.6-1.5l-.7-2.9C10.2 4.3 9.6 3.8 8.9 3.8H6.6C5.7 3.8 5 4.5 5 5.4"/></svg>
+          <div>
+            <div class="text-cream/90 font-medium group-hover:text-champagne transition-colors">+49 89 2722462</div>
+            <div class="text-sm text-cream/55">Ruf uns an – wir finden deinen Termin</div>
+          </div>
+        </a>
+        <a href="https://hairgott.de/" target="_blank" rel="noopener noreferrer" class="flex items-start gap-4 rounded-2xl bg-white/5 border border-white/10 p-5 hover:border-champagne transition-colors group">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="w-6 h-6 text-champagne shrink-0 mt-0.5"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"/></svg>
+          <div>
+            <div class="text-cream/90 font-medium group-hover:text-champagne transition-colors">hairgott.de</div>
+            <div class="text-sm text-cream/55">Mehr über den Salon</div>
+          </div>
+        </a>
+      </div>
+      <a href="tel:+49892722462" class="mt-6 inline-flex items-center gap-2 rounded-full bg-champagne text-ink font-medium px-6 py-3.5 hover:bg-cream transition-colors">
+        Jetzt Termin sichern
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-charcoal border-t border-white/10">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8 py-12 flex flex-col md:flex-row items-center justify-between gap-6">
+    <div class="flex items-center gap-2.5">
+      <span class="grid place-items-center w-8 h-8 rounded-full border border-champagne/50 text-champagne">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="w-4 h-4"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.5 8.2 20 17M8.5 15.8 20 7"/></svg>
+      </span>
+      <span class="font-display text-lg">HairGott Friseure</span>
+    </div>
+    <p class="text-sm text-cream/45 text-center">© <span id="year">2026</span> HairGott Friseure · Schellingstraße 57, München</p>
+    <div class="flex items-center gap-6 text-sm text-cream/60">
+      <a href="/impressum" class="hover:text-champagne transition-colors">Impressum</a>
+      <a href="/datenschutz" class="hover:text-champagne transition-colors">Datenschutz</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Year
+  var y = document.getElementById('year');
+  if (y) y.textContent = new Date().getFullYear();
+
+  // Header background on scroll
+  var header = document.getElementById('siteHeader');
+  function onScroll() {
+    if (window.scrollY > 40) {
+      header.classList.add('bg-ink/85', 'backdrop-blur', 'border-b', 'border-white/10');
+    } else {
+      header.classList.remove('bg-ink/85', 'backdrop-blur', 'border-b', 'border-white/10');
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Scroll reveal
+  var items = document.querySelectorAll('.reveal:not(.in)');
+  if ('IntersectionObserver' in window && !reduce) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+    items.forEach(function (el) { io.observe(el); });
+  } else {
+    items.forEach(function (el) { el.classList.add('in'); });
+  }
+
+  // Hero parallax (transform only)
+  if (!reduce) {
+    var wrap = document.getElementById('heroWrap');
+    var floaty = document.querySelector('.floaty');
+    var ticking = false;
+    window.addEventListener('scroll', function () {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () {
+        var y = window.scrollY;
+        if (y < window.innerHeight) {
+          if (wrap) wrap.style.transform = 'translate3d(0,' + (y * 0.18) + 'px,0)';
+          if (floaty) floaty.style.transform = 'translate3d(' + (y * -0.06) + 'px,' + (y * 0.12) + 'px,0)';
+        }
+        ticking = false;
+      });
+    }, { passive: true });
+
+    // Subtle mouse tilt on the floating scissor motif
+    var hero = document.querySelector('section');
+    if (floaty && hero) {
+      hero.addEventListener('mousemove', function (ev) {
+        var r = hero.getBoundingClientRect();
+        var px = (ev.clientX - r.left) / r.width - 0.5;
+        var py = (ev.clientY - r.top) / r.height - 0.5;
+        floaty.style.filter = 'none';
+        floaty.style.setProperty('transform', 'perspective(600px) rotateY(' + (px * 12) + 'deg) rotateX(' + (py * -12) + 'deg)');
+      });
+    }
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AMBA Hair – Premium Friseur in München-Maxvorstadt</title>
+<meta name="description" content="AMBA Hair – dein Premium-Friseur am Odeonsplatz in München. Exzellente Haarschnitte, individuelle Farbkonzepte und luxuriöse Pflege-Rituale mit nachhaltigen Davines-Produkten. Familiengeführt.">
+<meta property="og:title" content="AMBA Hair – Premium Friseur in München-Maxvorstadt">
+<meta property="og:description" content="Exzellente Haarschnitte, individuelle Farbkonzepte und luxuriöse Pflege-Rituale. Nachhaltiger Salon am Odeonsplatz – we are family.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://lh3.googleusercontent.com/place-photos/AJRVUZNju93H4EgCQr6VZHlWAzVlwvE3THLCept2LpfmQWYm2cv2Oj3IzvIfLQLB-YAPNZSpERKE3OlhCV47fguvA-GdkiiX1_7YtAZKNTwd0u9anvYg7PggaDUWHg0EjKvo3F6EXpSLzUV4hLpK3A=s4800-w1600-h1200">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink:    '#211c16',
+          cream:  '#f5efe4',
+          sand:   '#e9e0cf',
+          clay:   '# b0 ',
+          olive:  '#6d7150',
+          copper: '#b06a3f',
+        },
+        fontFamily: {
+          serif: ['Georgia', 'Cambria', '"Times New Roman"', 'serif'],
+          sans:  ['ui-sans-serif', 'system-ui', '-apple-system', '"Segoe UI"', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+        },
+        letterSpacing: {
+          brand: '0.35em',
+        }
+      }
+    }
+  }
+</script>
+<style>
+  :root { color-scheme: light; }
+  body { background:#f5efe4; }
+
+  /* ---- Hero ---- */
+  .hero-img {
+    will-change: transform;
+    transform: scale(1.12);
+    animation: kenburns 22s ease-in-out infinite alternate;
+  }
+  @keyframes kenburns {
+    from { transform: scale(1.12) translate3d(0,0,0); }
+    to   { transform: scale(1.22) translate3d(-1.5%, -2%, 0); }
+  }
+
+  /* flowing "hair" strands */
+  .strand {
+    fill: none;
+    stroke-linecap: round;
+    opacity: .0;
+    animation: strandIn 2.4s ease forwards, drift 14s ease-in-out infinite alternate;
+  }
+  .strand:nth-child(1){ animation-delay: .2s, 0s; }
+  .strand:nth-child(2){ animation-delay: .5s, .8s; }
+  .strand:nth-child(3){ animation-delay: .8s, 1.6s; }
+  .strand:nth-child(4){ animation-delay: 1.1s, 2.4s; }
+  @keyframes strandIn { to { opacity:.5; } }
+  @keyframes drift {
+    from { transform: translate3d(0,0,0); }
+    to   { transform: translate3d(2.5%, -1.5%, 0); }
+  }
+
+  .tilt-layer { will-change: transform; transition: transform .35s cubic-bezier(.2,.8,.2,1); }
+
+  /* ---- Scroll reveal ---- */
+  .reveal { opacity:0; transform: translateY(28px); transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1); }
+  .reveal.in { opacity:1; transform: none; }
+  .reveal.d1 { transition-delay:.08s; }
+  .reveal.d2 { transition-delay:.16s; }
+  .reveal.d3 { transition-delay:.24s; }
+
+  .link-underline { background-image: linear-gradient(currentColor,currentColor); background-size:0% 1px; background-repeat:no-repeat; background-position:0 100%; transition: background-size .4s ease; }
+  .link-underline:hover { background-size:100% 1px; }
+
+  .zoom-media img { transition: transform 1.1s cubic-bezier(.2,.7,.2,1); }
+  .zoom-media:hover img { transform: scale(1.06); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-img { animation:none; transform:scale(1.05); }
+    .strand { animation:none; opacity:.4; }
+    .reveal { opacity:1 !important; transform:none !important; transition:none; }
+    .zoom-media img { transition:none; }
+    html { scroll-behavior:auto; }
+  }
+</style>
+</head>
+<body class="font-sans text-ink antialiased selection:bg-copper/20">
+
+<!-- ===== Header ===== -->
+<header class="fixed top-0 inset-x-0 z-50 transition-colors duration-500" id="siteHeader">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 h-16 md:h-20 flex items-center justify-between">
+    <a href="#top" class="font-serif text-lg md:text-xl tracking-brand pl-1" id="brandMark" aria-label="AMBA Hair – Startseite">AMBA</a>
+    <nav class="hidden md:flex items-center gap-8 text-sm tracking-wide" id="navLinks" aria-label="Hauptnavigation">
+      <a href="#salon" class="link-underline">Salon</a>
+      <a href="#galerie" class="link-underline">Galerie</a>
+      <a href="#stimmen" class="link-underline">Stimmen</a>
+      <a href="#zeiten" class="link-underline">Öffnungszeiten</a>
+      <a href="#kontakt" class="link-underline">Kontakt</a>
+    </nav>
+    <a href="tel:+498924210498" class="text-sm font-medium border border-current/40 rounded-full px-4 py-2 hover:bg-ink hover:text-cream transition-colors duration-300" id="ctaMark">Termin&nbsp;anrufen</a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ===== Hero ===== -->
+<section class="relative min-h-[100svh] flex items-end overflow-hidden bg-ink">
+  <div class="absolute inset-0">
+    <img id="heroImg"
+         class="hero-img absolute inset-0 w-full h-full object-cover"
+         src="https://lh3.googleusercontent.com/place-photos/AJRVUZNju93H4EgCQr6VZHlWAzVlwvE3THLCept2LpfmQWYm2cv2Oj3IzvIfLQLB-YAPNZSpERKE3OlhCV47fguvA-GdkiiX1_7YtAZKNTwd0u9anvYg7PggaDUWHg0EjKvo3F6EXpSLzUV4hLpK3A=s4800-w1600-h1200"
+         alt="Innenansicht des AMBA Hair Salons in München-Maxvorstadt">
+  </div>
+  <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/45 to-ink/25"></div>
+  <div class="absolute inset-0 bg-gradient-to-r from-ink/40 to-transparent"></div>
+
+  <!-- signature flowing strands -->
+  <svg class="tilt-layer absolute inset-0 w-full h-full pointer-events-none" id="strands" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <path class="strand" stroke="#e9e0cf" stroke-width="1.4" d="M-50 180 C 300 120, 520 260, 820 180 S 1300 120, 1300 200"/>
+    <path class="strand" stroke="#c99a72" stroke-width="1.1" d="M-50 320 C 250 260, 600 420, 900 320 S 1300 250, 1300 340"/>
+    <path class="strand" stroke="#e9e0cf" stroke-width="1"   d="M-50 470 C 320 400, 560 560, 880 470 S 1300 400, 1300 500"/>
+    <path class="strand" stroke="#b06a3f" stroke-width="1.2" d="M-50 620 C 280 560, 640 700, 960 610 S 1300 560, 1300 640"/>
+  </svg>
+
+  <div class="tilt-layer relative w-full max-w-7xl mx-auto px-5 sm:px-8 pb-16 md:pb-24 text-cream">
+    <p class="text-xs sm:text-sm tracking-brand uppercase mb-5 text-sand/90">München · Maxvorstadt · Odeonsplatz</p>
+    <h1 class="font-serif leading-[0.95] text-5xl sm:text-7xl lg:text-8xl">AMBA&nbsp;Hair</h1>
+    <p class="mt-6 max-w-xl text-base sm:text-lg text-cream/85 font-light">
+      Premium-Friseur für exzellente Haarschnitte, individuelle Farbkonzepte und luxuriöse Pflege-Rituale – nachhaltig, mit hochwertigen Davines-Produkten.
+    </p>
+    <div class="mt-9 flex flex-wrap items-center gap-4">
+      <a href="tel:+498924210498" class="inline-flex items-center gap-2 bg-cream text-ink rounded-full px-6 py-3 text-sm font-medium hover:bg-copper hover:text-cream transition-colors duration-300">
+        Termin anrufen
+      </a>
+      <a href="https://www.google.com/maps/search/?api=1&query=AMBA+Hair+Kardinal-D%C3%B6pfner-Stra%C3%9Fe+5+M%C3%BCnchen" target="_blank" rel="noopener noreferrer"
+         class="inline-flex items-center gap-2 border border-cream/50 text-cream rounded-full px-6 py-3 text-sm font-medium hover:bg-cream hover:text-ink transition-colors duration-300">
+        Route zum Salon
+      </a>
+      <span class="inline-flex items-center gap-2 text-sm text-cream/90 pl-1">
+        <span class="text-copper text-base">★</span>
+        <span><strong class="font-semibold">4,7</strong> · 209 Bewertungen bei Google</span>
+      </span>
+    </div>
+  </div>
+
+  <div class="absolute bottom-6 left-1/2 -translate-x-1/2 text-cream/60 text-[11px] tracking-widest uppercase animate-pulse">Scroll</div>
+</section>
+
+<!-- ===== Über uns / Salon ===== -->
+<section id="salon" class="bg-cream py-24 md:py-32">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+      <div class="lg:col-span-5 reveal">
+        <p class="text-xs tracking-brand uppercase text-olive mb-5">We are family</p>
+        <h2 class="font-serif text-4xl sm:text-5xl leading-tight mb-6">Ein Salon,<br>geführt von Geschwistern.</h2>
+        <p class="text-ink/70 leading-relaxed">
+          Amba Hair ist dein Premium-Friseur in München für exzellente Haarschnitte, individuelle Farbkonzepte und luxuriöse Pflege-Rituale. Als nachhaltiger Salon am Odeonsplatz verbinden wir präzises Handwerk, modernes Design und bewusste Produkte – für ganzheitliche Haarpflege auf höchstem Niveau.
+        </p>
+      </div>
+      <div class="lg:col-span-7 space-y-5 text-ink/75 leading-relaxed reveal d1">
+        <p>We are family – und das meinen wir wörtlich. Wir, Alin, Bedo und Ari, sind Geschwister. Doch auch Juliette, Lucia, Manuela, Elisabeth und Verena gehören längst zur AMBA-Familie. Gemeinsam heißen wir euch herzlich willkommen in unserem Salon.</p>
+        <p>Unsere Leidenschaft für Haare begann schon früh – als Kinder waren Friseurbesuche für uns das Größte. Später haben wir, jeder auf seinem eigenen Weg, den Beruf von Grund auf gelernt. Unsere Wege führten uns nach Stuttgart, London, Hamburg, Moskau und Wien – bis wir schließlich alle in München wieder zusammenfanden und unseren ersten gemeinsamen Salon eröffneten.</p>
+        <p>Manuela bringt mit ihrer Erfahrung aus vielen Jahren in Südafrika eine besondere Perspektive und viel internationales Flair mit in unser Team. Juliette und Lucia ergänzen unser Stylistenteam perfekt. Und Verena sorgt dafür, dass im Hintergrund alles rund läuft – von der Terminplanung bis zur Organisation.</p>
+        <p class="font-serif text-xl text-ink">Komm vorbei und lern uns kennen. Wir freuen uns auf dich.</p>
+      </div>
+    </div>
+
+    <!-- Leistungen -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-20">
+      <div class="reveal bg-white/60 border border-sand rounded-2xl p-7 hover:-translate-y-1 transition-transform duration-500">
+        <div class="font-serif text-2xl mb-2 text-copper">01</div>
+        <h3 class="font-medium text-lg mb-2">Haarschnitte</h3>
+        <p class="text-sm text-ink/65 leading-relaxed">Präzises Handwerk und Schnitte, die zu dir und deinem Alltag passen.</p>
+      </div>
+      <div class="reveal d1 bg-white/60 border border-sand rounded-2xl p-7 hover:-translate-y-1 transition-transform duration-500">
+        <div class="font-serif text-2xl mb-2 text-copper">02</div>
+        <h3 class="font-medium text-lg mb-2">Farbkonzepte</h3>
+        <p class="text-sm text-ink/65 leading-relaxed">Individuelle Farbe – von natürlichen Nuancen bis zur mutigen Veränderung.</p>
+      </div>
+      <div class="reveal d2 bg-white/60 border border-sand rounded-2xl p-7 hover:-translate-y-1 transition-transform duration-500">
+        <div class="font-serif text-2xl mb-2 text-copper">03</div>
+        <h3 class="font-medium text-lg mb-2">Pflege-Rituale</h3>
+        <p class="text-sm text-ink/65 leading-relaxed">Luxuriöse Pflege für gesundes, glänzendes Haar – als kleine Auszeit.</p>
+      </div>
+      <div class="reveal d3 bg-white/60 border border-sand rounded-2xl p-7 hover:-translate-y-1 transition-transform duration-500">
+        <div class="font-serif text-2xl mb-2 text-olive">04</div>
+        <h3 class="font-medium text-lg mb-2">Nachhaltig mit Davines</h3>
+        <p class="text-sm text-ink/65 leading-relaxed">Bewusste, hochwertige Davines-Produkte für nachhaltige Schönheit.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Galerie ===== -->
+<section id="galerie" class="bg-ink text-cream py-24 md:py-32">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="flex flex-wrap items-end justify-between gap-6 mb-12 reveal">
+      <div>
+        <p class="text-xs tracking-brand uppercase text-copper mb-4">Einblicke</p>
+        <h2 class="font-serif text-4xl sm:text-5xl">Unser Salon</h2>
+      </div>
+      <p class="max-w-sm text-cream/60 text-sm leading-relaxed">Ein Ort zum Wohlfühlen im Herzen der Maxvorstadt – zwischen präzisem Handwerk und ruhiger Atmosphäre.</p>
+    </div>
+
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+      <div class="zoom-media reveal overflow-hidden rounded-2xl row-span-2 aspect-[3/4]">
+        <img loading="lazy" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/place-photos/AJRVUZNe3MC_vm2RuFqe9GeYjnBmZ8b-kqp2ysrNh51HWflKwmQhCi5mpGgVLzx6I5M6E04icobKn2bvQVazlpCKgvszQWu492oZ3Kp6ZofMTEjAuQkZ3p_EVpLzVSust4u9RvuvdU1wRpRtLGus-N8=s4800-w1600-h1200" alt="Detailaufnahme im AMBA Hair Salon">
+      </div>
+      <div class="zoom-media reveal d1 overflow-hidden rounded-2xl aspect-square">
+        <img loading="lazy" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/place-photos/AJRVUZPQ8XzehdUCOFT4_pEpAtTwSZgwoedkzUWUbiA-wtEaQ4zoiUbZkqxBleME-aFe-6s14hN-t1JEU1CBE1_7UFjpVhWXvrUuoNjPl7j_n6gaWwqVPV_liQhJdxzLWfJ3ED6baJ9LUcYlChyKxB8=s4800-w1600-h1200" alt="Arbeitsplatz im AMBA Hair Salon">
+      </div>
+      <div class="zoom-media reveal d2 overflow-hidden rounded-2xl aspect-square">
+        <img loading="lazy" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/place-photos/AJRVUZPxmxFbuBjgJNcB-NNucbxy7JpAbNnvSfnF-mh5WmZ5Bjxgci1jQfGjjOUmGJzeipf7j86enBPH46Imptjp1mFGbFgDdCjyPK-m_fLHqF0ymz6NAJeT8aGOU4bmWOXnqJ670ToLbi8WdZlav80=s4800-w1600-h1200" alt="Atmosphäre im AMBA Hair Salon">
+      </div>
+      <div class="zoom-media reveal d3 overflow-hidden rounded-2xl col-span-2 lg:col-span-1 aspect-[16/9] lg:aspect-square">
+        <img loading="lazy" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/place-photos/AJRVUZNqpMElhhAQMIgPnzOUDIS1UaKZ3Do_hLJRDzh_rG0r8eRUcJ6gLPPluu3E5LTvqZzquYmGAdqURoDnQ2QvU700P6JGk7VzzWfUIHyKr6j80DtjozmhGUF4CyBDT7OcZIJJU1ykZpk2YlT7dM8bemEtAA=s4800-w1600-h1200" alt="Interieur des AMBA Hair Salons">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Stimmen / Reviews ===== -->
+<section id="stimmen" class="bg-cream py-24 md:py-32">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-14 reveal">
+      <p class="text-xs tracking-brand uppercase text-olive mb-4">Google-Bewertungen</p>
+      <h2 class="font-serif text-4xl sm:text-5xl mb-4">Was unsere Gäste sagen</h2>
+      <p class="text-ink/60"><span class="text-copper">★</span> 4,7 von 5 · basierend auf 209 Bewertungen</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-5">
+      <figure class="reveal bg-white/70 border border-sand rounded-2xl p-7 flex flex-col">
+        <div class="text-copper mb-4 tracking-wide" aria-label="5 von 5 Sternen">★★★★★</div>
+        <blockquote class="text-ink/75 text-sm leading-relaxed flex-1">I visited for the first time yesterday after two friends recommended this salon to me. I had an appointment with Juliette, who gave me excellent advice for my men’s haircut. I was really happy with the final result! I can highly recommend both the salon and Juliette, and I’ll definitely be coming back.</blockquote>
+        <figcaption class="mt-5 pt-4 border-t border-sand text-sm"><span class="font-medium">Pirmin N</span> <span class="text-ink/45">· vor 10 Monaten</span></figcaption>
+      </figure>
+
+      <figure class="reveal d1 bg-white/70 border border-sand rounded-2xl p-7 flex flex-col">
+        <div class="text-copper mb-4 tracking-wide" aria-label="5 von 5 Sternen">★★★★★</div>
+        <blockquote class="text-ink/75 text-sm leading-relaxed flex-1">Best best best hairdresser in all of everywhere!!!! Super cozy space and the sweetest people🫶🏻 I changed my hair from black to copper and they did an amazing job! It took some time to get there but my hair isn‘t damaged at all, instead it‘s super shiny and looks exactly how I imagined it. They really know what they‘re doing. I really recommend!! I have been a customer for over 10 years now and I’ve never been unhappy with the result! Go check out AMBA Hair now ❤️❤️❤️</blockquote>
+        <figcaption class="mt-5 pt-4 border-t border-sand text-sm"><span class="font-medium">Lucie Rittau</span> <span class="text-ink/45">· vor einem Jahr</span></figcaption>
+      </figure>
+
+      <figure class="reveal d2 bg-white/70 border border-sand rounded-2xl p-7 flex flex-col">
+        <div class="text-copper mb-4 tracking-wide" aria-label="5 von 5 Sternen">★★★★★</div>
+        <blockquote class="text-ink/75 text-sm leading-relaxed flex-1">This was my first time getting my hair cut at a hairdresser's since before the pandemic. I was naturally very nervous, but Elisabeth did an incredible job and made me fall in love with my hair all over again. She made me feel very comfortable and confident! I will definitely be coming back :)</blockquote>
+        <figcaption class="mt-5 pt-4 border-t border-sand text-sm"><span class="font-medium">August Molina</span> <span class="text-ink/45">· vor einem Jahr</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Öffnungszeiten + Kontakt ===== -->
+<section id="zeiten" class="bg-sand/50 py-24 md:py-32">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 grid lg:grid-cols-2 gap-14 lg:gap-20">
+
+    <!-- Öffnungszeiten -->
+    <div class="reveal">
+      <p class="text-xs tracking-brand uppercase text-olive mb-5">Wann für dich da</p>
+      <h2 class="font-serif text-4xl sm:text-5xl mb-8">Öffnungszeiten</h2>
+      <ul class="divide-y divide-ink/10" id="hoursList">
+        <li class="flex justify-between py-3.5" data-day="1"><span>Montag</span><span class="text-ink/70">08:30 – 18:00 Uhr</span></li>
+        <li class="flex justify-between py-3.5" data-day="2"><span>Dienstag</span><span class="text-ink/70">08:30 – 20:00 Uhr</span></li>
+        <li class="flex justify-between py-3.5" data-day="3"><span>Mittwoch</span><span class="text-ink/70">08:30 – 20:00 Uhr</span></li>
+        <li class="flex justify-between py-3.5" data-day="4"><span>Donnerstag</span><span class="text-ink/70">08:30 – 20:00 Uhr</span></li>
+        <li class="flex justify-between py-3.5" data-day="5"><span>Freitag</span><span class="text-ink/70">10:00 – 20:00 Uhr</span></li>
+        <li class="flex justify-between py-3.5" data-day="6"><span>Samstag</span><span class="text-ink/70">10:00 – 14:00 Uhr</span></li>
+        <li class="flex justify-between py-3.5" data-day="0"><span>Sonntag</span><span class="text-ink/40">Geschlossen</span></li>
+      </ul>
+    </div>
+
+    <!-- Kontakt -->
+    <div id="kontakt" class="reveal d1">
+      <p class="text-xs tracking-brand uppercase text-olive mb-5">Besuch uns</p>
+      <h2 class="font-serif text-4xl sm:text-5xl mb-8">Kontakt</h2>
+      <div class="space-y-6 text-ink/80">
+        <div>
+          <h3 class="text-xs uppercase tracking-widest text-ink/40 mb-1">Adresse</h3>
+          <p>Kardinal-Döpfner-Straße 5<br>80333 München-Maxvorstadt</p>
+          <a href="https://www.google.com/maps/search/?api=1&query=AMBA+Hair+Kardinal-D%C3%B6pfner-Stra%C3%9Fe+5+M%C3%BCnchen" target="_blank" rel="noopener noreferrer" class="inline-block mt-2 text-copper link-underline">In Google Maps öffnen →</a>
+        </div>
+        <div>
+          <h3 class="text-xs uppercase tracking-widest text-ink/40 mb-1">Telefon</h3>
+          <a href="tel:+498924210498" class="text-lg font-medium link-underline">+49 89 24210498</a>
+        </div>
+        <div>
+          <h3 class="text-xs uppercase tracking-widest text-ink/40 mb-1">E-Mail</h3>
+          <a href="mailto:hello@amba-hair.com" class="link-underline">hello@amba-hair.com</a>
+        </div>
+        <a href="tel:+498924210498" class="inline-flex items-center gap-2 mt-2 bg-ink text-cream rounded-full px-7 py-3.5 text-sm font-medium hover:bg-copper transition-colors duration-300">
+          Jetzt Termin vereinbaren
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== Footer ===== -->
+<footer class="bg-ink text-cream/70">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 py-14">
+    <div class="flex flex-col md:flex-row justify-between gap-8 md:items-end">
+      <div>
+        <div class="font-serif text-2xl tracking-brand text-cream mb-3">AMBA</div>
+        <p class="text-sm max-w-xs leading-relaxed text-cream/60">Premium-Friseur in München-Maxvorstadt. Nachhaltige Haarpflege mit Davines. We are family.</p>
+      </div>
+      <nav class="flex flex-wrap gap-x-6 gap-y-2 text-sm" aria-label="Rechtliches">
+        <a href="#salon" class="link-underline">Salon</a>
+        <a href="#galerie" class="link-underline">Galerie</a>
+        <a href="#kontakt" class="link-underline">Kontakt</a>
+        <a href="/impressum" class="link-underline">Impressum</a>
+        <a href="/datenschutz" class="link-underline">Datenschutz</a>
+      </nav>
+    </div>
+    <div class="mt-10 pt-6 border-t border-cream/10 text-xs text-cream/40 flex flex-col sm:flex-row justify-between gap-2">
+      <span>© <span id="year">2026</span> AMBA Hair · Kardinal-Döpfner-Straße 5, 80333 München</span>
+      <span>Bewertungen &amp; Fotos: Google</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Jahr */
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* Heutigen Tag hervorheben */
+  var today = new Date().getDay();
+  var row = document.querySelector('#hoursList li[data-day="' + today + '"]');
+  if (row) {
+    row.classList.add('font-semibold', 'text-copper');
+    row.querySelector('span:last-child').classList.remove('text-ink/70', 'text-ink/40');
+    var badge = document.createElement('span');
+    badge.textContent = 'Heute';
+    badge.className = 'ml-2 text-[10px] uppercase tracking-widest align-middle text-olive';
+    row.querySelector('span:first-child').appendChild(badge);
+  }
+
+  /* Header-Hintergrund beim Scrollen */
+  var header = document.getElementById('siteHeader');
+  var brand = document.getElementById('brandMark');
+  var nav = document.getElementById('navLinks');
+  var cta = document.getElementById('ctaMark');
+  function onScrollHeader() {
+    var solid = window.scrollY > 40;
+    header.classList.toggle('bg-cream/90', solid);
+    header.classList.toggle('backdrop-blur', solid);
+    header.classList.toggle('shadow-sm', solid);
+    [brand, cta].forEach(function (el) { el.classList.toggle('text-ink', solid); el.classList.toggle('text-cream', !solid); });
+    nav.classList.toggle('text-ink', solid);
+    nav.classList.toggle('text-cream', !solid);
+  }
+  onScrollHeader();
+
+  /* Scroll-Reveal */
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+
+  if (reduce) { return; }
+
+  /* Hero-Parallax + Header */
+  var heroImg = document.getElementById('heroImg');
+  var ticking = false;
+  function onScroll() {
+    if (!ticking) {
+      window.requestAnimationFrame(function () {
+        var y = window.scrollY;
+        if (y < window.innerHeight) {
+          heroImg.style.transform = 'translate3d(0,' + (y * 0.28) + 'px,0)';
+        }
+        onScrollHeader();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  /* Sanfter 3D-/Drift-Tilt per Maus im Hero */
+  var hero = heroImg.closest('section');
+  var layers = hero.querySelectorAll('.tilt-layer');
+  hero.addEventListener('mousemove', function (ev) {
+    var r = hero.getBoundingClientRect();
+    var px = (ev.clientX - r.left) / r.width - 0.5;
+    var py = (ev.clientY - r.top) / r.height - 0.5;
+    layers.forEach(function (l, i) {
+      var depth = (i + 1) * 8;
+      l.style.transform = 'perspective(900px) rotateX(' + (-py * 2.2) + 'deg) rotateY(' + (px * 2.6) + 'deg) translate3d(' + (px * depth) + 'px,' + (py * depth) + 'px,0)';
+    });
+  });
+  hero.addEventListener('mouseleave', function () {
+    layers.forEach(function (l) { l.style.transform = ''; });
+  });
+})();
+</script>
+</body>
+</html>
