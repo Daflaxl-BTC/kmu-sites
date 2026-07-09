@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SantoLoco Surf Café · Kaffee &amp; Surf in München-Altstadt</title>
+<meta name="description" content="SantoLoco Surf Café in der Münchner Altstadt: bester Kaffee der Umgebung, entspannte Surf- &amp; Skate-Atmosphäre und ein Lieblingsplatz zum Verweilen. 4,8 ★ bei 354 Google-Bewertungen.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="SantoLoco Surf Café · München-Altstadt">
+<meta property="og:description" content="Kaffee, Wellen &amp; guter Vibe mitten in München. Entspanntes Surf-Café mit dem besten Kaffee der Umgebung — 4,8 ★ bei Google.">
+<meta property="og:image" content="https://lh3.googleusercontent.com/place-photos/AJRVUZOUMtYGwAgY1HlYGEbcmKmmYygcRcZHdsotfLCYMVIN57yWS880EN5P-QTgoP9Oxx2yJOTZHibMG92o-ORpYUjnfXTLa-9SfKw45ge98MZxh3LNLi63JWJZKmu1EC0qxwM4sbd18pIPfj8u4p9CaVn-Mg=s4800-w1600-h1200">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ocean: '#0b3a49',
+          deep: '#072731',
+          lagoon: '#1e8a94',
+          foam: '#7fd4d1',
+          sand: '#f5ead6',
+          cream: '#fbf6ec',
+          coral: '#f2704a',
+          sun: '#ffb648',
+        },
+        fontFamily: {
+          display: ['"Trebuchet MS"', 'Verdana', 'system-ui', 'sans-serif'],
+          body: ['system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+        },
+      },
+    },
+  }
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { -webkit-font-smoothing: antialiased; }
+
+  /* Hero-Foto: langsamer Ken-Burns-Zoom */
+  @keyframes kenburns {
+    0%   { transform: scale(1.08) translate3d(0,0,0); }
+    100% { transform: scale(1.22) translate3d(-1.5%, -2%, 0); }
+  }
+  .kenburns { animation: kenburns 26s ease-in-out infinite alternate; }
+
+  /* Driftende Sonne / Glow */
+  @keyframes drift {
+    0%   { transform: translate3d(0,0,0); }
+    50%  { transform: translate3d(18px,-22px,0); }
+    100% { transform: translate3d(0,0,0); }
+  }
+  .drift { animation: drift 14s ease-in-out infinite; }
+
+  /* Wellen-Schwingen */
+  @keyframes waveShift { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .wave-a { animation: waveShift 11s linear infinite; }
+  .wave-b { animation: waveShift 17s linear infinite; }
+  .wave-c { animation: waveShift 24s linear infinite; }
+
+  /* Scroll-Bounce-Hinweis */
+  @keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(9px); } }
+  .bob { animation: bob 2.4s ease-in-out infinite; }
+
+  /* Scroll-Reveal */
+  .reveal { opacity: 0; transform: translateY(34px); transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1); will-change: transform, opacity; }
+  .reveal.in { opacity: 1; transform: none; }
+  .reveal[data-d="1"] { transition-delay: .09s; }
+  .reveal[data-d="2"] { transition-delay: .18s; }
+  .reveal[data-d="3"] { transition-delay: .27s; }
+
+  .headline-card { transform-style: preserve-3d; transition: transform .25s ease-out; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .kenburns, .drift, .wave-a, .wave-b, .wave-c, .bob { animation: none !important; }
+    .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+    .headline-card { transform: none !important; }
+  }
+</style>
+</head>
+<body class="bg-cream text-ocean font-body antialiased selection:bg-coral selection:text-white">
+
+<!-- Header -->
+<header id="top" class="fixed top-0 inset-x-0 z-50 transition-all duration-300" data-header>
+  <nav class="mx-auto max-w-6xl px-5 sm:px-8 flex items-center justify-between h-16" aria-label="Hauptnavigation">
+    <a href="#top" class="flex items-center gap-2 font-display font-bold tracking-tight text-white" data-logo>
+      <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-coral text-white text-lg leading-none shadow-lg" aria-hidden="true">≈</span>
+      <span class="text-lg">SantoLoco</span>
+    </a>
+    <ul class="hidden md:flex items-center gap-7 text-sm font-medium text-white/90" data-navlinks>
+      <li><a href="#ueber" class="hover:text-coral transition-colors">Café</a></li>
+      <li><a href="#galerie" class="hover:text-coral transition-colors">Galerie</a></li>
+      <li><a href="#stimmen" class="hover:text-coral transition-colors">Stimmen</a></li>
+      <li><a href="#zeiten" class="hover:text-coral transition-colors">Öffnungszeiten</a></li>
+      <li><a href="#kontakt" class="hover:text-coral transition-colors">Kontakt</a></li>
+    </ul>
+    <a href="tel:+498930708585" class="inline-flex items-center gap-2 rounded-full bg-coral px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-coral/30 hover:bg-white hover:text-coral transition-colors">
+      Anrufen
+    </a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="relative min-h-[100svh] flex items-center overflow-hidden bg-deep">
+    <!-- Parallax-Fotohintergrund -->
+    <div class="absolute inset-0 -z-10" data-parallax="0.35">
+      <img
+        src="https://lh3.googleusercontent.com/place-photos/AJRVUZOUMtYGwAgY1HlYGEbcmKmmYygcRcZHdsotfLCYMVIN57yWS880EN5P-QTgoP9Oxx2yJOTZHibMG92o-ORpYUjnfXTLa-9SfKw45ge98MZxh3LNLi63JWJZKmu1EC0qxwM4sbd18pIPfj8u4p9CaVn-Mg=s4800-w1600-h1200"
+        alt="Innenraum des SantoLoco Surf Café mit gemütlicher Atmosphäre"
+        class="kenburns h-full w-full object-cover"
+        fetchpriority="high">
+    </div>
+    <!-- Overlays für Lesbarkeit + Farbstimmung -->
+    <div class="absolute inset-0 -z-10 bg-gradient-to-b from-deep/80 via-ocean/55 to-deep/90"></div>
+    <div class="absolute inset-0 -z-10 bg-[radial-gradient(120%_80%_at_80%_15%,rgba(242,112,74,0.28),transparent_55%)]"></div>
+
+    <!-- Driftende Sonne -->
+    <div class="drift pointer-events-none absolute right-6 top-24 sm:right-20 sm:top-28 -z-10">
+      <div class="h-28 w-28 sm:h-40 sm:w-40 rounded-full bg-gradient-to-br from-sun to-coral blur-[2px] opacity-80 shadow-[0_0_80px_30px_rgba(255,182,72,0.35)]"></div>
+    </div>
+
+    <!-- Inhalt -->
+    <div class="relative mx-auto max-w-6xl px-5 sm:px-8 w-full pt-24 pb-40">
+      <div class="max-w-2xl headline-card" data-tilt>
+        <p class="mb-4 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-xs sm:text-sm font-semibold uppercase tracking-widest text-foam backdrop-blur">
+          <span aria-hidden="true">≈≈</span> Surf-Café · München-Altstadt
+        </p>
+        <h1 class="font-display text-5xl sm:text-7xl font-extrabold leading-[0.95] text-white drop-shadow-sm">
+          Kaffee.<br>
+          <span class="text-coral">Wellen.</span><br>
+          Guter Vibe.
+        </h1>
+        <p class="mt-6 max-w-lg text-lg sm:text-xl text-sand/95">
+          Ein entspanntes Plätzchen mitten in der Stadt — mit richtig gutem Kaffee, Surf-Charme und Zeit zum Verweilen.
+        </p>
+
+        <!-- Bewertung -->
+        <div class="mt-7 inline-flex items-center gap-3 rounded-full bg-white/12 border border-white/20 px-4 py-2 backdrop-blur">
+          <span class="text-sun text-lg leading-none" aria-hidden="true">★★★★★</span>
+          <span class="text-white font-semibold">4,8</span>
+          <span class="text-sand/80 text-sm">· 354 Bewertungen bei Google · €€</span>
+        </div>
+
+        <!-- CTAs -->
+        <div class="mt-8 flex flex-wrap items-center gap-3">
+          <a href="tel:+498930708585" class="inline-flex items-center gap-2 rounded-full bg-coral px-6 py-3 font-semibold text-white shadow-xl shadow-coral/30 hover:-translate-y-0.5 hover:bg-sun hover:text-deep transition-all">
+            <span aria-hidden="true">📞</span> +49 89 30708585
+          </a>
+          <a href="https://www.google.com/maps/search/?api=1&query=SantoLoco+Surf+Caf%C3%A9+Eisenmannstra%C3%9Fe+4+80331+M%C3%BCnchen" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/5 px-6 py-3 font-semibold text-white hover:bg-white hover:text-ocean transition-colors">
+            <span aria-hidden="true">📍</span> Route planen
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Animierte Wellen unten -->
+    <div class="pointer-events-none absolute bottom-0 inset-x-0 -z-0" aria-hidden="true">
+      <svg class="w-full h-24 sm:h-32" viewBox="0 0 1440 160" preserveAspectRatio="none">
+        <path class="wave-c" fill="#1e8a94" fill-opacity="0.5" d="M0,80 C240,140 480,20 720,70 C960,120 1200,40 1440,80 L1440,160 L0,160 Z M1440,80 C1680,140 1920,20 2160,70 C2400,120 2640,40 2880,80 L2880,160 L1440,160 Z"/>
+        <path class="wave-b" fill="#0b3a49" fill-opacity="0.7" d="M0,100 C240,60 480,150 720,110 C960,70 1200,150 1440,100 L1440,160 L0,160 Z M1440,100 C1680,60 1920,150 2160,110 C2400,70 2640,150 2880,100 L2880,160 L1440,160 Z"/>
+        <path class="wave-a" fill="#fbf6ec" d="M0,125 C240,100 480,155 720,130 C960,105 1200,155 1440,125 L1440,160 L0,160 Z M1440,125 C1680,100 1920,155 2160,130 C2400,105 2640,155 2880,125 L2880,160 L1440,160 Z"/>
+      </svg>
+    </div>
+
+    <a href="#ueber" class="bob absolute bottom-6 left-1/2 -translate-x-1/2 z-10 text-ocean/70 hover:text-coral" aria-label="Nach unten scrollen">
+      <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </section>
+
+  <!-- ÜBER / ANGEBOT -->
+  <section id="ueber" class="relative py-24 sm:py-32">
+    <div class="mx-auto max-w-6xl px-5 sm:px-8">
+      <div class="grid gap-14 lg:grid-cols-2 lg:items-center">
+        <div class="reveal">
+          <p class="mb-3 text-sm font-bold uppercase tracking-widest text-coral">Willkommen</p>
+          <h2 class="font-display text-4xl sm:text-5xl font-extrabold leading-tight">
+            Wo Kaffee auf<br><span class="text-lagoon">Surf-Feeling</span> trifft.
+          </h2>
+          <p class="mt-6 text-lg text-ocean/80 max-w-lg">
+            Das SantoLoco ist mehr als ein Café: ein Ort zum Ankommen, Durchatmen und Bleiben. Freundliches Team, ein entspannter Hangout mit Sofa und Büchern rund um Kaffee &amp; Surf — und ein sonniger Außenbereich für die Pause zwischendurch.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-3 text-sm font-semibold">
+            <span class="rounded-full bg-sand px-4 py-2 text-ocean">☕ Bester Kaffee der Umgebung</span>
+            <span class="rounded-full bg-sand px-4 py-2 text-ocean">🏄 Surf- &amp; Skate-Vibe</span>
+            <span class="rounded-full bg-sand px-4 py-2 text-ocean">☀️ Sonnenplätze draußen</span>
+          </div>
+        </div>
+
+        <div class="grid gap-5 sm:grid-cols-2">
+          <article class="reveal group rounded-3xl bg-white p-7 shadow-sm ring-1 ring-ocean/5 hover:shadow-xl hover:-translate-y-1 transition-all">
+            <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-lagoon/10 text-2xl">☕</div>
+            <h3 class="font-display text-xl font-bold">Kaffee &amp; Genuss</h3>
+            <p class="mt-2 text-ocean/70">Kräftiger, aromatischer Kaffee mit rundem Abgang — dazu kleine süße Treats und Snacks für die schnelle Pause.</p>
+          </article>
+          <article class="reveal group rounded-3xl bg-white p-7 shadow-sm ring-1 ring-ocean/5 hover:shadow-xl hover:-translate-y-1 transition-all" data-d="1">
+            <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-coral/10 text-2xl">🛋️</div>
+            <h3 class="font-display text-xl font-bold">Hangout-Atmosphäre</h3>
+            <p class="mt-2 text-ocean/70">Relaxte Location zum Verweilen — mit Sofa, Tischen und Büchern rund um Kaffee und Surfkultur.</p>
+          </article>
+          <article class="reveal group rounded-3xl bg-white p-7 shadow-sm ring-1 ring-ocean/5 hover:shadow-xl hover:-translate-y-1 transition-all" data-d="1">
+            <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-sun/15 text-2xl">🏄</div>
+            <h3 class="font-display text-xl font-bold">Surf &amp; Skate</h3>
+            <p class="mt-2 text-ocean/70">Kompetente, herzliche Beratung und der besondere Surf- &amp; Skate-Spirit, der das SantoLoco einzigartig macht.</p>
+          </article>
+          <article class="reveal group rounded-3xl bg-white p-7 shadow-sm ring-1 ring-ocean/5 hover:shadow-xl hover:-translate-y-1 transition-all" data-d="2">
+            <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-lagoon/10 text-2xl">📍</div>
+            <h3 class="font-display text-xl font-bold">Mitten in der Altstadt</h3>
+            <p class="mt-2 text-ocean/70">Zentrale Lage in München-Altstadt — der perfekte Stopp bei einem Bummel durch die Stadt.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERIE -->
+  <section id="galerie" class="relative py-20 sm:py-28 bg-ocean text-cream overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(90%_60%_at_10%_0%,rgba(126,212,209,0.15),transparent_60%)]"></div>
+    <div class="relative mx-auto max-w-6xl px-5 sm:px-8">
+      <div class="reveal mb-12 max-w-xl">
+        <p class="mb-3 text-sm font-bold uppercase tracking-widest text-foam">Einblicke</p>
+        <h2 class="font-display text-4xl sm:text-5xl font-extrabold">Ein Blick ins SantoLoco</h2>
+      </div>
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+        <a href="https://lh3.googleusercontent.com/place-photos/AJRVUZPKFF8Sp-Eft9_7XMze1YufeNMXxBZCzhMSQckK0PMid4grBjcdaMFMII4iQS1IYfHAJnGEvz6kzUX2tfqQVbxsGTfG7uw9sttXIv-KYTFXcCBbGkXo2leG2ZOrK_f3TPljLmWfO7kfvbLRIV4=s4800-w1080-h720" target="_blank" rel="noopener noreferrer" class="reveal group relative col-span-2 aspect-[4/3] overflow-hidden rounded-3xl ring-1 ring-white/10">
+          <img loading="lazy" src="https://lh3.googleusercontent.com/place-photos/AJRVUZPKFF8Sp-Eft9_7XMze1YufeNMXxBZCzhMSQckK0PMid4grBjcdaMFMII4iQS1IYfHAJnGEvz6kzUX2tfqQVbxsGTfG7uw9sttXIv-KYTFXcCBbGkXo2leG2ZOrK_f3TPljLmWfO7kfvbLRIV4=s4800-w1080-h720" alt="Impression aus dem SantoLoco Surf Café" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110">
+        </a>
+        <a href="https://lh3.googleusercontent.com/place-photos/AJRVUZN5DqMwfrrmT7PJedC1tEZ0itV_pK3-aVw6ZRTiB_ZiH3Go4N4QZOZ4UCnvhpSjPAQSxFndh6mgzBfEzGDpTv3MSelIEvUFl9bVRg1JjOClql-17Rs1cQfLoK2Kl3A4kJjI5stz-fzGooLciLlZGGF3=s4800-w1600-h1200" target="_blank" rel="noopener noreferrer" class="reveal group relative aspect-square overflow-hidden rounded-3xl ring-1 ring-white/10" data-d="1">
+          <img loading="lazy" src="https://lh3.googleusercontent.com/place-photos/AJRVUZN5DqMwfrrmT7PJedC1tEZ0itV_pK3-aVw6ZRTiB_ZiH3Go4N4QZOZ4UCnvhpSjPAQSxFndh6mgzBfEzGDpTv3MSelIEvUFl9bVRg1JjOClql-17Rs1cQfLoK2Kl3A4kJjI5stz-fzGooLciLlZGGF3=s4800-w1600-h1200" alt="Detailaufnahme im SantoLoco Surf Café" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110">
+        </a>
+        <a href="https://lh3.googleusercontent.com/place-photos/AJRVUZMaGp9sohONipX7ObGm4TXGDL0duEUTjUzeMPplJfZZ6V4oycJp4si8ww0V3MdqRVmv_YqkOZvlHDX-iVBqx9meij04BObfyMnmQ3sun9pxMvajY2QYIER-XdK3_HRmmqxIb3G_ProQymZkTYP8llrHyw=s4800-w1171-h1171" target="_blank" rel="noopener noreferrer" class="reveal group relative aspect-square overflow-hidden rounded-3xl ring-1 ring-white/10" data-d="2">
+          <img loading="lazy" src="https://lh3.googleusercontent.com/place-photos/AJRVUZMaGp9sohONipX7ObGm4TXGDL0duEUTjUzeMPplJfZZ6V4oycJp4si8ww0V3MdqRVmv_YqkOZvlHDX-iVBqx9meij04BObfyMnmQ3sun9pxMvajY2QYIER-XdK3_HRmmqxIb3G_ProQymZkTYP8llrHyw=s4800-w1171-h1171" alt="Gemütliche Ecke im SantoLoco Surf Café" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110">
+        </a>
+        <a href="https://lh3.googleusercontent.com/place-photos/AJRVUZMGMAn_xMHxVSb87tiwm7-IwCVrINVWt_fZbaMnnhFe4PyjsxJ2WvVTHFiXaBjSC28MwoSYI33_7P6EHhqnBTMBya2rnySbD_VcdhDJA=s4800-w1600-h1200" target="_blank" rel="noopener noreferrer" class="reveal group relative col-span-2 lg:col-span-1 aspect-[4/3] lg:aspect-square overflow-hidden rounded-3xl ring-1 ring-white/10" data-d="3">
+          <img loading="lazy" src="https://lh3.googleusercontent.com/place-photos/AJRVUZMGMAn_xMHxVSb87tiwm7-IwCVrINVWt_fZbaMnnhFe4PyjsxJ2WvVTHFiXaBjSC28MwoSYI33_7P6EHhqnBTMBya2rnySbD_VcdhDJA=s4800-w1600-h1200" alt="Sonniger Außenbereich des SantoLoco Surf Café" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110">
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- REZENSIONEN -->
+  <section id="stimmen" class="relative py-24 sm:py-32">
+    <div class="mx-auto max-w-6xl px-5 sm:px-8">
+      <div class="reveal mb-14 text-center max-w-2xl mx-auto">
+        <p class="mb-3 text-sm font-bold uppercase tracking-widest text-coral">Gäste-Stimmen</p>
+        <h2 class="font-display text-4xl sm:text-5xl font-extrabold">Das sagen unsere Gäste</h2>
+        <p class="mt-4 text-lg text-ocean/70">4,8 von 5 Sternen aus 354 Google-Bewertungen.</p>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-3">
+        <!-- Review 1 -->
+        <figure class="reveal flex flex-col rounded-3xl bg-white p-7 shadow-sm ring-1 ring-ocean/5 hover:shadow-xl transition-shadow">
+          <div class="text-sun text-lg" aria-label="5 von 5 Sternen">★★★★★</div>
+          <blockquote class="mt-4 flex-1 text-ocean/85 leading-relaxed">
+            „Super friendly and knowledgeable team, great advice on longboards and setups, and a really relaxed atmosphere. The café is a huge bonus while you're waiting. Definitely my favourite skate and surf shop in Munich so far. Highly recommended!"
+          </blockquote>
+          <figcaption class="mt-6 flex items-center gap-3">
+            <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-lagoon/15 font-bold text-lagoon">C</span>
+            <span><span class="block font-semibold">Carolin Kumari</span><span class="block text-sm text-ocean/50">vor einem Monat</span></span>
+          </figcaption>
+        </figure>
+
+        <!-- Review 2 -->
+        <figure class="reveal flex flex-col rounded-3xl bg-white p-7 shadow-sm ring-1 ring-ocean/5 hover:shadow-xl transition-shadow" data-d="1">
+          <div class="text-sun text-lg" aria-label="5 von 5 Sternen">★★★★★</div>
+          <blockquote class="mt-4 flex-1 text-ocean/85 leading-relaxed">
+            „Coffee was tasty, strong and with perfect aftertaste. I like the hangout place. Location is great"
+          </blockquote>
+          <figcaption class="mt-6 flex items-center gap-3">
+            <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-coral/15 font-bold text-coral">D</span>
+            <span><span class="block font-semibold">Dalia Karmon</span><span class="block text-sm text-ocean/50">vor 2 Monaten</span></span>
+          </figcaption>
+        </figure>
+
+        <!-- Review 3 -->
+        <figure class="reveal flex flex-col rounded-3xl bg-white p-7 shadow-sm ring-1 ring-ocean/5 hover:shadow-xl transition-shadow" data-d="2">
+          <div class="text-sun text-lg" aria-label="4 von 5 Sternen">★★★★<span class="text-ocean/20">★</span></div>
+          <blockquote class="mt-4 flex-1 text-ocean/85 leading-relaxed">
+            „Many small sweet and treats and mini sandwiches for a rapid lunch with the best coffee of the surrounding. Perfect outdoor dine-in spots under the sun. Inside also some table and a couch and many books about coffee and surf, perfect for a shopping break. Customer toilets upstairs."
+          </blockquote>
+          <figcaption class="mt-6 flex items-center gap-3">
+            <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-sun/20 font-bold text-sun">M</span>
+            <span><span class="block font-semibold">Molka Farhood</span><span class="block text-sm text-ocean/50">vor einem Jahr</span></span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ÖFFNUNGSZEITEN + KONTAKT -->
+  <section id="zeiten" class="relative py-20 sm:py-28 bg-sand">
+    <div class="mx-auto max-w-6xl px-5 sm:px-8 grid gap-10 lg:grid-cols-2">
+
+      <!-- Öffnungszeiten -->
+      <div class="reveal rounded-3xl bg-white p-8 sm:p-10 shadow-sm ring-1 ring-ocean/5">
+        <h2 class="font-display text-3xl font-extrabold flex items-center gap-3">
+          <span class="text-2xl" aria-hidden="true">🕙</span> Öffnungszeiten
+        </h2>
+        <ul class="mt-6 divide-y divide-ocean/10 text-ocean/85">
+          <li class="flex justify-between py-3"><span>Montag</span><span class="font-semibold">10:00 – 18:00</span></li>
+          <li class="flex justify-between py-3"><span>Dienstag</span><span class="font-semibold">10:00 – 18:00</span></li>
+          <li class="flex justify-between py-3"><span>Mittwoch</span><span class="font-semibold">10:00 – 18:00</span></li>
+          <li class="flex justify-between py-3"><span>Donnerstag</span><span class="font-semibold">10:00 – 18:00</span></li>
+          <li class="flex justify-between py-3"><span>Freitag</span><span class="font-semibold">10:00 – 18:00</span></li>
+          <li class="flex justify-between py-3"><span>Samstag</span><span class="font-semibold">10:00 – 18:00</span></li>
+          <li class="flex justify-between py-3"><span class="text-ocean/50">Sonntag</span><span class="font-semibold text-coral">Geschlossen</span></li>
+        </ul>
+      </div>
+
+      <!-- Kontakt -->
+      <div id="kontakt" class="reveal rounded-3xl bg-ocean p-8 sm:p-10 text-cream shadow-lg" data-d="1">
+        <h2 class="font-display text-3xl font-extrabold flex items-center gap-3">
+          <span class="text-2xl" aria-hidden="true">📍</span> So findest du uns
+        </h2>
+        <address class="mt-6 not-italic space-y-6 text-cream/90">
+          <div>
+            <p class="text-sm uppercase tracking-widest text-foam font-semibold">Adresse</p>
+            <p class="mt-1 text-lg">Eisenmannstraße 4<br>80331 München-Altstadt-Lehel</p>
+            <a href="https://www.google.com/maps/search/?api=1&query=SantoLoco+Surf+Caf%C3%A9+Eisenmannstra%C3%9Fe+4+80331+M%C3%BCnchen" target="_blank" rel="noopener noreferrer" class="mt-2 inline-flex items-center gap-1.5 text-foam hover:text-white font-semibold transition-colors">
+              Auf Google Maps öffnen →
+            </a>
+          </div>
+          <div>
+            <p class="text-sm uppercase tracking-widest text-foam font-semibold">Telefon</p>
+            <a href="tel:+498930708585" class="mt-1 inline-block text-lg hover:text-coral transition-colors">+49 89 30708585</a>
+          </div>
+        </address>
+        <a href="tel:+498930708585" class="mt-8 inline-flex items-center gap-2 rounded-full bg-coral px-6 py-3 font-semibold text-white shadow-lg shadow-coral/30 hover:-translate-y-0.5 hover:bg-sun hover:text-deep transition-all">
+          <span aria-hidden="true">📞</span> Jetzt anrufen
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-deep text-cream/80">
+  <div class="mx-auto max-w-6xl px-5 sm:px-8 py-12">
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+      <div>
+        <a href="#top" class="flex items-center gap-2 font-display font-bold text-lg text-white">
+          <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-coral text-white" aria-hidden="true">≈</span>
+          SantoLoco Surf Café
+        </a>
+        <p class="mt-2 text-sm text-cream/60">Eisenmannstraße 4 · 80331 München · ★ 4,8 bei Google</p>
+      </div>
+      <nav class="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm" aria-label="Rechtliches">
+        <a href="#ueber" class="hover:text-coral transition-colors">Café</a>
+        <a href="#galerie" class="hover:text-coral transition-colors">Galerie</a>
+        <a href="#zeiten" class="hover:text-coral transition-colors">Öffnungszeiten</a>
+        <a href="/impressum" class="hover:text-coral transition-colors">Impressum</a>
+        <a href="/datenschutz" class="hover:text-coral transition-colors">Datenschutz</a>
+      </nav>
+    </div>
+    <div class="mt-10 border-t border-white/10 pt-6 text-xs text-cream/50">
+      © <span id="year">2026</span> SantoLoco Surf Café. Alle Rechte vorbehalten.
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Aktuelles Jahr
+  var y = document.getElementById('year');
+  if (y) y.textContent = new Date().getFullYear();
+
+  // Header-Zustand beim Scrollen
+  var header = document.querySelector('[data-header]');
+  var logo = document.querySelector('[data-logo]');
+  var navlinks = document.querySelector('[data-navlinks]');
+  function onScroll() {
+    var solid = window.scrollY > 40;
+    header.classList.toggle('bg-cream/90', solid);
+    header.classList.toggle('backdrop-blur', solid);
+    header.classList.toggle('shadow-sm', solid);
+    if (logo) logo.classList.toggle('!text-ocean', solid);
+    if (navlinks) navlinks.classList.toggle('!text-ocean', solid);
+  }
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  // Scroll-Reveal via IntersectionObserver
+  var reveals = document.querySelectorAll('.reveal');
+  if (reduce || !('IntersectionObserver' in window)) {
+    reveals.forEach(function (el) { el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+    reveals.forEach(function (el) { io.observe(el); });
+  }
+
+  if (reduce) return;
+
+  // Hero-Parallax (nur transform, rAF-gedrosselt)
+  var parallax = document.querySelector('[data-parallax]');
+  var speed = parallax ? parseFloat(parallax.getAttribute('data-parallax')) : 0;
+  var ticking = false;
+  function updateParallax() {
+    if (parallax) {
+      var offset = window.scrollY * speed;
+      parallax.style.transform = 'translate3d(0,' + offset + 'px,0)';
+    }
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { window.requestAnimationFrame(updateParallax); ticking = true; }
+  }, { passive: true });
+
+  // Subtiler 3D-Tilt der Headline per Maus (nur Zeigegeräte)
+  var tilt = document.querySelector('[data-tilt]');
+  if (tilt && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    var hero = tilt.closest('section');
+    hero.addEventListener('mousemove', function (ev) {
+      var r = hero.getBoundingClientRect();
+      var px = (ev.clientX - r.left) / r.width - 0.5;
+      var py = (ev.clientY - r.top) / r.height - 0.5;
+      tilt.style.transform = 'perspective(900px) rotateY(' + (px * 5) + 'deg) rotateX(' + (-py * 5) + 'deg)';
+    });
+    hero.addEventListener('mouseleave', function () {
+      tilt.style.transform = 'perspective(900px) rotateY(0deg) rotateX(0deg)';
+    });
+  }
+})();
+</script>
+</body>
+</html>

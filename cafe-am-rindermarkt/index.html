@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Café am Rindermarkt · Kaffee & Croissants in der Münchner Altstadt</title>
+<meta name="description" content="Café am Rindermarkt in der Münchner Altstadt – gemütlicher Kaffeegenuss, frische Croissants und feiner Espresso, mitten am Rosental. 4,6 ★ bei 517 Google-Bewertungen.">
+<meta property="og:title" content="Café am Rindermarkt · Kaffee & Croissants in der Münchner Altstadt">
+<meta property="og:description" content="Gemütlicher Kaffeegenuss mitten in der Münchner Altstadt – Espresso, Croissants und ein lebendiger Platz zum Verweilen.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://lh3.googleusercontent.com/place-photos/AJRVUZPHsnCV47xIpA3WFUzwYEJ2XfXParOUtl-Yq48FC9SXoJhcBxR85bFjYcq1weWEMdAP1S1rqyPz0goGPKj-KzlojJxufP2qdD_ZmwAZncZ7vVQd6DYkhsbxfOtMRFIfywBKGKM00kdKEgLIxw=s4800-w1600-h1200">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        espresso: '#2b1a12',
+        mocha: '#3d2817',
+        crema: '#c8975a',
+        latte: '#e9dcc7',
+        cream: '#f6efe3',
+        roast: '#6f4a2c',
+      },
+      fontFamily: {
+        serif: ['Georgia', 'Cambria', '"Times New Roman"', 'serif'],
+        sans: ['ui-sans-serif', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+      },
+    },
+  },
+}
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { background:#f6efe3; }
+
+  /* Grain / warmth overlay */
+  .grain::after{
+    content:"";position:absolute;inset:0;pointer-events:none;opacity:.05;mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Ken Burns slow drift on hero photo */
+  @keyframes kenburns {
+    0%   { transform: scale(1.12) translate(0,0); }
+    100% { transform: scale(1.24) translate(-2%, -2%); }
+  }
+  .kenburns { animation: kenburns 22s ease-in-out infinite alternate; }
+
+  /* Steam rising from the cup */
+  @keyframes steam {
+    0%   { opacity:0; transform: translateY(6px) scaleX(1); }
+    18%  { opacity:.55; }
+    50%  { opacity:.35; }
+    100% { opacity:0; transform: translateY(-46px) scaleX(1.9); }
+  }
+  .steam span{
+    position:absolute; bottom:100%; left:50%; width:9px; height:34px; margin-left:-4.5px;
+    background: linear-gradient(to top, rgba(255,255,255,.85), rgba(255,255,255,0));
+    border-radius:50%; filter: blur(4px);
+    animation: steam 4.2s ease-in-out infinite;
+  }
+  .steam span:nth-child(1){ left:38%; animation-delay:0s; }
+  .steam span:nth-child(2){ left:52%; animation-delay:1.1s; }
+  .steam span:nth-child(3){ left:63%; animation-delay:2.2s; }
+
+  /* Gentle float for the signature cup */
+  @keyframes float { 0%,100%{ transform: translateY(0); } 50%{ transform: translateY(-10px); } }
+  .float { animation: float 6s ease-in-out infinite; }
+
+  /* Scroll reveal */
+  .reveal { opacity:0; transform: translateY(34px); transition: opacity .9s cubic-bezier(.16,.8,.3,1), transform .9s cubic-bezier(.16,.8,.3,1); }
+  .reveal.in { opacity:1; transform:none; }
+
+  .link-underline{ position:relative; }
+  .link-underline::after{ content:""; position:absolute; left:0; bottom:-3px; height:1.5px; width:0; background:currentColor; transition:width .35s ease; }
+  .link-underline:hover::after{ width:100%; }
+
+  @media (prefers-reduced-motion: reduce){
+    .kenburns,.steam span,.float{ animation:none !important; }
+    .reveal{ opacity:1 !important; transform:none !important; transition:none; }
+    html{ scroll-behavior:auto; }
+  }
+</style>
+</head>
+<body class="font-sans text-espresso antialiased selection:bg-crema/40">
+
+<!-- Header -->
+<header class="fixed top-0 inset-x-0 z-50 transition-colors duration-500" id="siteHeader">
+  <nav class="max-w-6xl mx-auto px-5 sm:px-8 h-20 flex items-center justify-between">
+    <a href="#top" class="flex items-center gap-3 group">
+      <span class="grid place-items-center w-11 h-11 rounded-full border border-crema/70 text-crema transition-colors group-hover:bg-crema group-hover:text-espresso" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="w-6 h-6"><path d="M4 8h13v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8Z"/><path d="M17 9h2.5a2.5 2.5 0 0 1 0 5H17"/><path d="M7 3.5c-.6.8-.6 1.7 0 2.5M11 3.5c-.6.8-.6 1.7 0 2.5"/></svg>
+      </span>
+      <span class="leading-tight">
+        <span class="block font-serif text-lg tracking-wide text-white drop-shadow" id="brandName">Café am Rindermarkt</span>
+        <span class="block text-[11px] uppercase tracking-[0.25em] text-crema/90" id="brandSub">München · Altstadt</span>
+      </span>
+    </a>
+    <ul class="hidden md:flex items-center gap-8 text-sm text-white/90" id="navLinks">
+      <li><a href="#ueber" class="link-underline">Über uns</a></li>
+      <li><a href="#galerie" class="link-underline">Galerie</a></li>
+      <li><a href="#stimmen" class="link-underline">Stimmen</a></li>
+      <li><a href="#zeiten" class="link-underline">Öffnungszeiten</a></li>
+      <li><a href="#kontakt" class="link-underline">Kontakt</a></li>
+    </ul>
+    <a href="tel:+498927374658" class="hidden sm:inline-flex items-center gap-2 rounded-full bg-crema text-espresso px-5 py-2.5 text-sm font-semibold hover:bg-white transition-colors">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="w-4 h-4"><path d="M6.5 3.5 9 4l1 4-2 1.5a12 12 0 0 0 6.5 6.5L16 14l4 1 .5 2.5a2 2 0 0 1-2 2.5A16.5 16.5 0 0 1 2 5a2 2 0 0 1 2.5-2Z"/></svg>
+      Anrufen
+    </a>
+  </nav>
+</header>
+
+<main id="top">
+
+<!-- Hero -->
+<section class="relative min-h-[100svh] flex items-end overflow-hidden grain">
+  <!-- Parallax photo -->
+  <div class="absolute inset-0 -z-10 will-change-transform" id="heroParallax">
+    <img src="https://lh3.googleusercontent.com/place-photos/AJRVUZPHsnCV47xIpA3WFUzwYEJ2XfXParOUtl-Yq48FC9SXoJhcBxR85bFjYcq1weWEMdAP1S1rqyPz0goGPKj-KzlojJxufP2qdD_ZmwAZncZ7vVQd6DYkhsbxfOtMRFIfywBKGKM00kdKEgLIxw=s4800-w1600-h1200"
+         alt="Sitzplätze und Terrasse des Café am Rindermarkt in der Münchner Altstadt" class="w-full h-[118%] object-cover kenburns">
+  </div>
+  <div class="absolute inset-0 -z-10 bg-gradient-to-t from-espresso via-espresso/70 to-espresso/25"></div>
+  <div class="absolute inset-0 -z-10 bg-espresso/25"></div>
+
+  <!-- Signature floating cup with steam -->
+  <div class="absolute top-24 right-6 sm:right-12 lg:right-24 z-10 hidden sm:block float" id="signatureCup" aria-hidden="true">
+    <div class="relative">
+      <div class="steam"><span></span><span></span><span></span></div>
+      <div class="relative w-28 h-28 lg:w-36 lg:h-36 rounded-full bg-gradient-to-br from-latte to-crema shadow-2xl grid place-items-center ring-8 ring-white/10">
+        <div class="w-20 h-20 lg:w-24 lg:h-24 rounded-full bg-gradient-to-br from-[#4a2f1c] to-[#2b1a12] shadow-inner"></div>
+        <div class="absolute -right-4 lg:-right-5 top-1/2 -translate-y-1/2 w-8 h-10 lg:w-9 lg:h-12 rounded-r-full border-[6px] border-latte"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="relative z-10 max-w-6xl mx-auto w-full px-5 sm:px-8 pb-16 sm:pb-20">
+    <div class="max-w-3xl">
+      <div class="flex flex-wrap items-center gap-3 mb-6">
+        <span class="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur px-4 py-1.5 text-sm text-white ring-1 ring-white/20">
+          <span class="text-crema text-base leading-none">★</span> 4,6 · 517 Bewertungen bei Google
+        </span>
+        <span class="inline-flex items-center rounded-full bg-white/10 backdrop-blur px-3 py-1.5 text-sm text-white ring-1 ring-white/20">€€</span>
+      </div>
+      <p class="font-sans uppercase tracking-[0.35em] text-crema text-xs sm:text-sm mb-4">Kaffeehaus · Rosental · München</p>
+      <h1 class="font-serif text-white text-5xl sm:text-6xl lg:text-7xl leading-[1.02] drop-shadow-sm">
+        Café am<br>Rindermarkt
+      </h1>
+      <p class="mt-6 text-lg sm:text-xl text-latte/95 max-w-xl leading-relaxed">
+        Espresso, frische Croissants und ein lebendiger Platz zum Verweilen – mitten in der Münchner Altstadt, nur wenige Schritte vom Marienplatz.
+      </p>
+      <div class="mt-9 flex flex-wrap gap-4">
+        <a href="tel:+498927374658" class="inline-flex items-center gap-2 rounded-full bg-crema text-espresso px-7 py-3.5 font-semibold hover:bg-white transition-colors shadow-lg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="w-5 h-5"><path d="M6.5 3.5 9 4l1 4-2 1.5a12 12 0 0 0 6.5 6.5L16 14l4 1 .5 2.5a2 2 0 0 1-2 2.5A16.5 16.5 0 0 1 2 5a2 2 0 0 1 2.5-2Z"/></svg>
+          089 27374658
+        </a>
+        <a href="https://www.google.com/maps/search/?api=1&query=Caf%C3%A9%20am%20Rindermarkt%20Rosental%201%2080331%20M%C3%BCnchen" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-full border border-white/40 text-white px-7 py-3.5 font-semibold hover:bg-white/10 transition-colors">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="w-5 h-5"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          Route &amp; Adresse
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 text-white/70 animate-bounce" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="w-6 h-6"><path d="M12 4v14m0 0-6-6m6 6 6-6"/></svg>
+  </div>
+</section>
+
+<!-- Über uns / Angebot -->
+<section id="ueber" class="relative py-24 sm:py-32 bg-cream">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8">
+    <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+      <div class="lg:col-span-5 reveal">
+        <p class="uppercase tracking-[0.3em] text-roast text-xs mb-4">Willkommen</p>
+        <h2 class="font-serif text-4xl sm:text-5xl leading-tight text-espresso">Ein Stück München zum Verweilen</h2>
+        <p class="mt-6 text-lg leading-relaxed text-mocha/90">
+          Am Rosental, umgeben von kleinen Läden und dem Trubel der Altstadt, ist unser Café ein beliebter Halt für einen schnellen Espresso am Mittag oder ein gemütliches Frühstück am Wochenende. Ob drinnen im warmen Ambiente oder draußen auf der Terrasse – hier lässt sich der Tag genießen.
+        </p>
+        <p class="mt-4 text-lg leading-relaxed text-mocha/90">
+          Freundlicher Service, guter Kaffee und faire Preise: dafür kommen Gäste seit Jahren immer wieder gerne zurück.
+        </p>
+      </div>
+
+      <div class="lg:col-span-7 grid sm:grid-cols-2 gap-5">
+        <article class="reveal group rounded-3xl bg-white p-7 shadow-sm ring-1 ring-espresso/5 hover:-translate-y-1 transition-transform">
+          <div class="w-12 h-12 rounded-2xl bg-latte grid place-items-center text-roast mb-5">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="w-6 h-6"><path d="M4 9h12v4a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9Z"/><path d="M16 10h2a2 2 0 0 1 0 4h-2"/><path d="M8 3.5c-.5.7-.5 1.5 0 2.2M12 3.5c-.5.7-.5 1.5 0 2.2"/></svg>
+          </div>
+          <h3 class="font-serif text-xl text-espresso">Kaffee &amp; Espresso</h3>
+          <p class="mt-2 text-mocha/80 leading-relaxed">Aromatisch geröstet – von der kräftigen Tasse bis zum Cappuccino für zwischendurch.</p>
+        </article>
+        <article class="reveal group rounded-3xl bg-white p-7 shadow-sm ring-1 ring-espresso/5 hover:-translate-y-1 transition-transform" style="transition-delay:.05s">
+          <div class="w-12 h-12 rounded-2xl bg-latte grid place-items-center text-roast mb-5">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="w-6 h-6"><path d="M4 14c2-6 14-6 16 0-2 2-14 2-16 0Z"/><path d="M6 14c.5-2 11.5-2 12 0"/></svg>
+          </div>
+          <h3 class="font-serif text-xl text-espresso">Frische Croissants</h3>
+          <p class="mt-2 text-mocha/80 leading-relaxed">Knusprige Croissants und Kleinigkeiten – ideal zum Kaffee am Vormittag.</p>
+        </article>
+        <article class="reveal group rounded-3xl bg-white p-7 shadow-sm ring-1 ring-espresso/5 hover:-translate-y-1 transition-transform" style="transition-delay:.1s">
+          <div class="w-12 h-12 rounded-2xl bg-latte grid place-items-center text-roast mb-5">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="w-6 h-6"><path d="M3 20V10l9-6 9 6v10"/><path d="M9 20v-6h6v6"/></svg>
+          </div>
+          <h3 class="font-serif text-xl text-espresso">Drinnen &amp; draußen</h3>
+          <p class="mt-2 text-mocha/80 leading-relaxed">Gemütlich im Innenraum oder unter freiem Himmel mitten in der Altstadt.</p>
+        </article>
+        <article class="reveal group rounded-3xl bg-white p-7 shadow-sm ring-1 ring-espresso/5 hover:-translate-y-1 transition-transform" style="transition-delay:.15s">
+          <div class="w-12 h-12 rounded-2xl bg-latte grid place-items-center text-roast mb-5">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="w-6 h-6"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          </div>
+          <h3 class="font-serif text-xl text-espresso">Beste Lage</h3>
+          <p class="mt-2 text-mocha/80 leading-relaxed">Am Rosental, unweit von Marienplatz und Frauenkirche – ideal für eine Pause beim Bummeln.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Galerie -->
+<section id="galerie" class="py-24 sm:py-32 bg-espresso text-latte relative grain overflow-hidden">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8">
+    <div class="reveal max-w-2xl mb-14">
+      <p class="uppercase tracking-[0.3em] text-crema text-xs mb-4">Einblicke</p>
+      <h2 class="font-serif text-4xl sm:text-5xl text-white leading-tight">Ein Blick ins Café</h2>
+      <p class="mt-5 text-latte/80 text-lg leading-relaxed">Echte Eindrücke von unserem Platz am Rindermarkt.</p>
+    </div>
+    <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+      <figure class="reveal col-span-2 lg:col-span-2 lg:row-span-2 overflow-hidden rounded-3xl group">
+        <img loading="lazy" src="https://lh3.googleusercontent.com/place-photos/AJRVUZO60GVW4PzGkJxwE69pC0YgXAPvBoDR1Vh5N3FNxu6Z45x0etm1BECkz0PMBh3pH3uzoDpkaGd81cZIcEJov9PVRfvZ7mLtBV3yPsDDf8C6_oM0t0rkMcCUvTHiY8SCEJcS2f_oGPfSZ36k65lrDzBodQ=s4800-w1600-h1200" alt="Kaffeespezialität im Café am Rindermarkt" class="w-full h-full object-cover aspect-[4/3] lg:aspect-auto transition-transform duration-700 group-hover:scale-105">
+      </figure>
+      <figure class="reveal overflow-hidden rounded-3xl group" style="transition-delay:.05s">
+        <img loading="lazy" src="https://lh3.googleusercontent.com/place-photos/AJRVUZMB_6bBcvuAcxy7C5PIAmViR3SqCU6FJquXhK2i4LJejMKeA7l6OH1c2f5uiTt0y3zvQi_-DplW6g0_HJ9inOrrfTJPGoAv9GZvuuHGv5Y1LjxTSpIpmIY2pTQ-yafvCJtpGUDud-Lm_q6TncoqfDzZ_g=s4800-w1600-h1200" alt="Gemütlicher Sitzbereich im Café am Rindermarkt" class="w-full h-full object-cover aspect-square transition-transform duration-700 group-hover:scale-105">
+      </figure>
+      <figure class="reveal overflow-hidden rounded-3xl group" style="transition-delay:.1s">
+        <img loading="lazy" src="https://lh3.googleusercontent.com/place-photos/AJRVUZNomvQY6D8DwOfRC1fcTnI19d4zmJRm3ouVocvuPNiOte3YbIw4SxDMgwHV2CpEskhY_xLsckS0XSSdlKA0qh7_BzT3uxiS7RJcEZAwHQYO-5JmwZIeJKVVYk3h0uTHDk5_ecDLPJNKvdgTjJ97bR2KoQ=s4800-w1600-h1200" alt="Terrasse und Umgebung des Café am Rindermarkt" class="w-full h-full object-cover aspect-square transition-transform duration-700 group-hover:scale-105">
+      </figure>
+      <figure class="reveal col-span-2 overflow-hidden rounded-3xl group" style="transition-delay:.15s">
+        <img loading="lazy" src="https://lh3.googleusercontent.com/place-photos/AJRVUZMFeCOGl-9H9wo54jr5oVOSObsVbAiiPCWZPADT6niPo6HHVG9pasm7Z26VWupxFbJfm8U4ZVm_qANVPZe4AhN4gUxBKShSp2kJQhEbR791M-_dkzU5bYvOcbTXjcn_oASU-nf1-UaEacAq=s4800-w1600-h1200" alt="Impression aus dem Café am Rindermarkt in der Münchner Altstadt" class="w-full h-full object-cover aspect-[16/10] transition-transform duration-700 group-hover:scale-105">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- Rezensionen -->
+<section id="stimmen" class="py-24 sm:py-32 bg-cream">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8">
+    <div class="reveal flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-14">
+      <div class="max-w-xl">
+        <p class="uppercase tracking-[0.3em] text-roast text-xs mb-4">Gästestimmen</p>
+        <h2 class="font-serif text-4xl sm:text-5xl text-espresso leading-tight">Das sagen unsere Gäste</h2>
+      </div>
+      <div class="inline-flex items-center gap-3 rounded-2xl bg-white px-5 py-4 shadow-sm ring-1 ring-espresso/5">
+        <span class="font-serif text-4xl text-espresso leading-none">4,6</span>
+        <span class="text-sm text-mocha/70 leading-tight">★★★★★<br>517 Google-Bewertungen</span>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <blockquote class="reveal rounded-3xl bg-white p-7 shadow-sm ring-1 ring-espresso/5 flex flex-col">
+        <div class="text-crema text-lg mb-4" aria-label="5 von 5 Sternen">★★★★★</div>
+        <p class="text-mocha/90 leading-relaxed grow">„One of my favorite coffee spot in the city, for quick coffee espresso and croissants in the mid day… I love the ambience and sorrounded by many shops, great place for sitting and having a rest… Staffs are friendly and service is fast."</p>
+        <footer class="mt-6 flex items-center gap-3">
+          <span class="w-10 h-10 rounded-full bg-latte text-roast grid place-items-center font-semibold">N</span>
+          <span class="text-sm"><span class="block font-semibold text-espresso">Nima Maloumi</span><span class="text-mocha/60">vor 4 Jahren</span></span>
+        </footer>
+      </blockquote>
+
+      <blockquote class="reveal rounded-3xl bg-white p-7 shadow-sm ring-1 ring-espresso/5 flex flex-col" style="transition-delay:.07s">
+        <div class="text-crema text-lg mb-4" aria-label="4 von 5 Sternen">★★★★<span class="text-espresso/20">★</span></div>
+        <p class="text-mocha/90 leading-relaxed grow">„Just next to the famous cathedral of the city, cozy and nice market. Food is delicious ( prices fair). Not bad at all over a drink or so with a nice company or Solo. Highly recommended"</p>
+        <footer class="mt-6 flex items-center gap-3">
+          <span class="w-10 h-10 rounded-full bg-latte text-roast grid place-items-center font-semibold">L</span>
+          <span class="text-sm"><span class="block font-semibold text-espresso">LEO AMAN</span><span class="text-mocha/60">vor einem Jahr</span></span>
+        </footer>
+      </blockquote>
+
+      <blockquote class="reveal rounded-3xl bg-white p-7 shadow-sm ring-1 ring-espresso/5 flex flex-col" style="transition-delay:.14s">
+        <div class="text-crema text-lg mb-4" aria-label="4 von 5 Sternen">★★★★<span class="text-espresso/20">★</span></div>
+        <p class="text-mocha/90 leading-relaxed grow">„The place itself looks nice. Everything was good… The coffee was delicious though. Would recommend…"</p>
+        <footer class="mt-6 flex items-center gap-3">
+          <span class="w-10 h-10 rounded-full bg-latte text-roast grid place-items-center font-semibold">W</span>
+          <span class="text-sm"><span class="block font-semibold text-espresso">Wooden Stick</span><span class="text-mocha/60">vor 3 Jahren</span></span>
+        </footer>
+      </blockquote>
+    </div>
+    <p class="reveal mt-8 text-sm text-mocha/60">Rezensionen von Google. Wiedergabe im Original­wortlaut, teils gekürzt.</p>
+  </div>
+</section>
+
+<!-- Öffnungszeiten & Kontakt -->
+<section id="zeiten" class="py-24 sm:py-32 bg-mocha text-latte relative grain">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8 grid lg:grid-cols-2 gap-14 lg:gap-20">
+
+    <div class="reveal" id="zeiten-inner">
+      <p class="uppercase tracking-[0.3em] text-crema text-xs mb-4">Wann wir da sind</p>
+      <h2 class="font-serif text-4xl sm:text-5xl text-white leading-tight mb-8">Öffnungszeiten</h2>
+      <ul class="divide-y divide-white/10 rounded-3xl bg-white/5 ring-1 ring-white/10 overflow-hidden" id="hoursList">
+        <li class="flex items-center justify-between px-6 py-4" data-day="1"><span>Montag</span><span class="text-latte/90">09:00 – 19:00 Uhr</span></li>
+        <li class="flex items-center justify-between px-6 py-4" data-day="2"><span>Dienstag</span><span class="text-latte/90">09:00 – 19:00 Uhr</span></li>
+        <li class="flex items-center justify-between px-6 py-4" data-day="3"><span>Mittwoch</span><span class="text-latte/90">09:00 – 19:00 Uhr</span></li>
+        <li class="flex items-center justify-between px-6 py-4" data-day="4"><span>Donnerstag</span><span class="text-latte/90">09:00 – 19:00 Uhr</span></li>
+        <li class="flex items-center justify-between px-6 py-4" data-day="5"><span>Freitag</span><span class="text-latte/90">09:00 – 19:00 Uhr</span></li>
+        <li class="flex items-center justify-between px-6 py-4" data-day="6"><span>Samstag</span><span class="text-latte/90">09:00 – 19:00 Uhr</span></li>
+        <li class="flex items-center justify-between px-6 py-4" data-day="0"><span>Sonntag</span><span class="text-crema/90">Geschlossen</span></li>
+      </ul>
+    </div>
+
+    <div id="kontakt" class="reveal">
+      <p class="uppercase tracking-[0.3em] text-crema text-xs mb-4">So findest du uns</p>
+      <h2 class="font-serif text-4xl sm:text-5xl text-white leading-tight mb-8">Kontakt &amp; Anfahrt</h2>
+      <div class="space-y-5">
+        <a href="https://www.google.com/maps/search/?api=1&query=Caf%C3%A9%20am%20Rindermarkt%20Rosental%201%2080331%20M%C3%BCnchen" target="_blank" rel="noopener noreferrer" class="flex items-start gap-4 rounded-3xl bg-white/5 ring-1 ring-white/10 px-6 py-5 hover:bg-white/10 transition-colors group">
+          <span class="mt-0.5 text-crema"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="w-6 h-6"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+          <span>
+            <span class="block text-white font-semibold">Adresse</span>
+            <span class="block text-latte/85">Rosental 1, 80331 München</span>
+            <span class="block text-crema/90 text-sm mt-1 group-hover:underline">Auf Google Maps öffnen →</span>
+          </span>
+        </a>
+        <a href="tel:+498927374658" class="flex items-start gap-4 rounded-3xl bg-white/5 ring-1 ring-white/10 px-6 py-5 hover:bg-white/10 transition-colors">
+          <span class="mt-0.5 text-crema"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="w-6 h-6"><path d="M6.5 3.5 9 4l1 4-2 1.5a12 12 0 0 0 6.5 6.5L16 14l4 1 .5 2.5a2 2 0 0 1-2 2.5A16.5 16.5 0 0 1 2 5a2 2 0 0 1 2.5-2Z"/></svg></span>
+          <span>
+            <span class="block text-white font-semibold">Telefon</span>
+            <span class="block text-latte/85">+49 89 27374658</span>
+          </span>
+        </a>
+        <div class="flex items-start gap-4 rounded-3xl bg-white/5 ring-1 ring-white/10 px-6 py-5">
+          <span class="mt-0.5 text-crema"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="w-6 h-6"><path d="M12 8v5"/><circle cx="12" cy="16" r=".6" fill="currentColor"/><circle cx="12" cy="12" r="9"/></svg></span>
+          <span>
+            <span class="block text-white font-semibold">Gut zu wissen</span>
+            <span class="block text-latte/85">Preisniveau €€ · Innen- und Außenplätze</span>
+          </span>
+        </div>
+      </div>
+      <a href="tel:+498927374658" class="mt-8 inline-flex items-center gap-2 rounded-full bg-crema text-espresso px-7 py-3.5 font-semibold hover:bg-white transition-colors shadow-lg">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="w-5 h-5"><path d="M6.5 3.5 9 4l1 4-2 1.5a12 12 0 0 0 6.5 6.5L16 14l4 1 .5 2.5a2 2 0 0 1-2 2.5A16.5 16.5 0 0 1 2 5a2 2 0 0 1 2.5-2Z"/></svg>
+        Jetzt anrufen
+      </a>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-espresso text-latte/70 py-12">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-6 text-sm">
+    <div class="flex items-center gap-3">
+      <span class="grid place-items-center w-9 h-9 rounded-full border border-crema/50 text-crema" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="w-5 h-5"><path d="M4 8h13v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8Z"/><path d="M17 9h2.5a2.5 2.5 0 0 1 0 5H17"/></svg>
+      </span>
+      <span class="font-serif text-white text-base">Café am Rindermarkt</span>
+    </div>
+    <p>© <span id="year">2026</span> Café am Rindermarkt · Rosental 1, 80331 München</p>
+    <nav class="flex items-center gap-6">
+      <a href="/impressum" class="link-underline hover:text-white">Impressum</a>
+      <a href="/datenschutz" class="link-underline hover:text-white">Datenschutz</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Header background swap on scroll
+  var header = document.getElementById('siteHeader');
+  var brandName = document.getElementById('brandName');
+  var brandSub = document.getElementById('brandSub');
+  var navLinks = document.getElementById('navLinks');
+  function onScroll(){
+    var solid = window.scrollY > 40;
+    header.classList.toggle('bg-cream/95', solid);
+    header.classList.toggle('backdrop-blur', solid);
+    header.classList.toggle('shadow-sm', solid);
+    brandName.classList.toggle('text-espresso', solid);
+    brandName.classList.toggle('text-white', !solid);
+    if(navLinks){
+      navLinks.classList.toggle('text-espresso/80', solid);
+      navLinks.classList.toggle('text-white/90', !solid);
+    }
+    brandSub.classList.toggle('text-roast', solid);
+    brandSub.classList.toggle('text-crema/90', !solid);
+  }
+  onScroll();
+
+  // Hero parallax (transform only)
+  var parallax = document.getElementById('heroParallax');
+  var cup = document.getElementById('signatureCup');
+  var ticking = false;
+  function frame(){
+    var y = window.scrollY;
+    if(!reduce){
+      if(parallax) parallax.style.transform = 'translateY(' + (y * 0.28) + 'px)';
+      if(cup) cup.style.transform = 'translateY(' + (y * -0.12) + 'px)';
+    }
+    ticking = false;
+  }
+  window.addEventListener('scroll', function(){
+    onScroll();
+    if(!ticking){ window.requestAnimationFrame(frame); ticking = true; }
+  }, {passive:true});
+
+  // Mouse 3D tilt on signature cup
+  if(cup && !reduce){
+    window.addEventListener('mousemove', function(e){
+      var cx = window.innerWidth/2, cy = window.innerHeight/2;
+      var rx = ((e.clientY - cy)/cy) * -8;
+      var ry = ((e.clientX - cx)/cx) * 8;
+      cup.style.perspective = '600px';
+      var inner = cup.firstElementChild;
+      if(inner) inner.style.transform = 'rotateX(' + rx + 'deg) rotateY(' + ry + 'deg)';
+    }, {passive:true});
+  }
+
+  // Scroll reveal
+  var reveals = document.querySelectorAll('.reveal');
+  if(reduce || !('IntersectionObserver' in window)){
+    reveals.forEach(function(el){ el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, {threshold:0.14, rootMargin:'0px 0px -8% 0px'});
+    reveals.forEach(function(el){ io.observe(el); });
+  }
+
+  // Highlight today's opening hours
+  var today = new Date().getDay();
+  var todayEl = document.querySelector('#hoursList li[data-day="' + today + '"]');
+  if(todayEl){
+    todayEl.classList.add('bg-white/10');
+    var badge = document.createElement('span');
+    badge.textContent = 'Heute';
+    badge.className = 'absolute';
+    todayEl.querySelector('span').insertAdjacentHTML('afterbegin','<span class="mr-2 inline-block text-[10px] uppercase tracking-wider text-espresso bg-crema rounded-full px-2 py-0.5 align-middle">Heute</span>');
+  }
+})();
+</script>
+</body>
+</html>

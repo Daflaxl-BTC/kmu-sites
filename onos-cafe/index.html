@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ONOS Café · Kaffee & Kleinigkeiten in München</title>
+<meta name="description" content="ONOS Café in der Augsburgerstraße 2, München – Kaffeespezialitäten, frische Säfte und kleine Speisen. 4,9 ★ bei 188 Google-Bewertungen.">
+<meta property="og:title" content="ONOS Café · München">
+<meta property="og:description" content="Kaffeespezialitäten, frische Säfte und kleine Speisen mitten in München. 4,9 ★ bei Google.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://lh3.googleusercontent.com/place-photos/AJRVUZPaqfrRO6c-uWxSSIKnBn1Tk70P_toKCxAEc1uL0gMC_qtaAelh590d9fLKQb4jGFWJtfg0PrIVjs5o-bgoxPVFdX-kO5Yojxiw6P091vV7F8E8qVDlvuz4o-V84HmZWQjTouqrVM-v9dio00nB0HC-dQ=s4800-w1600-h1200">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        cream: '#faf4ea',
+        sand: '#f0e5d3',
+        terra: '#c25336',
+        terradark: '#a3402a',
+        olive: '#6d7a52',
+        espresso: '#2c1c12',
+        honey: '#e0a445'
+      },
+      fontFamily: {
+        display: ['Georgia', 'Cambria', 'Times New Roman', 'serif'],
+        body: ['ui-sans-serif', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif']
+      }
+    }
+  }
+}
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { background:#faf4ea; }
+
+  /* Signature: langsamer Ken-Burns-Zoom auf dem Hero-Foto */
+  @keyframes kenburns {
+    0%   { transform: scale(1.08) translate(0, 0); }
+    100% { transform: scale(1.22) translate(-2%, -2%); }
+  }
+  .kenburns { animation: kenburns 26s ease-in-out infinite alternate; will-change: transform; }
+
+  /* Aufsteigender Dampf über der Kaffeetasse */
+  @keyframes steam {
+    0%   { opacity: 0; transform: translateY(6px) scaleX(1); }
+    18%  { opacity: .55; }
+    50%  { opacity: .35; transform: translateY(-14px) scaleX(1.35); }
+    80%  { opacity: .12; }
+    100% { opacity: 0; transform: translateY(-30px) scaleX(1.7); }
+  }
+  .steam span {
+    position: absolute; bottom: 0; width: 7px; height: 34px;
+    background: linear-gradient(to top, rgba(255,255,255,.85), rgba(255,255,255,0));
+    border-radius: 50%; filter: blur(3px);
+    animation: steam 4.2s ease-in-out infinite;
+  }
+  .steam span:nth-child(1){ left: 8px;  animation-delay: 0s;   }
+  .steam span:nth-child(2){ left: 22px; animation-delay: 1.1s; }
+  .steam span:nth-child(3){ left: 36px; animation-delay: 2.2s; }
+
+  /* sanftes Schweben der Signatur-Tasse */
+  @keyframes floaty {
+    0%,100% { transform: translateY(0) rotate(-2deg); }
+    50%     { transform: translateY(-10px) rotate(2deg); }
+  }
+  .floaty { animation: floaty 6s ease-in-out infinite; }
+
+  /* Scroll-Reveal */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1); }
+  .reveal.in { opacity: 1; transform: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .kenburns, .steam span, .floaty { animation: none !important; }
+    .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body class="font-body text-espresso antialiased">
+
+<!-- Header -->
+<header class="fixed top-0 inset-x-0 z-50 transition-all duration-300" id="siteHeader">
+  <nav class="max-w-6xl mx-auto flex items-center justify-between px-5 py-4">
+    <a href="#top" class="flex items-center gap-2 font-display text-2xl font-bold tracking-tight text-cream drop-shadow-sm" id="brand">
+      <span class="inline-block w-8 h-8 rounded-full bg-terra ring-2 ring-cream/70 grid place-items-center text-cream text-sm font-bold">O</span>
+      ONOS Café
+    </a>
+    <ul class="hidden md:flex items-center gap-7 text-sm font-medium text-cream/90" id="navLinks">
+      <li><a href="#ueber" class="hover:text-honey transition">Über uns</a></li>
+      <li><a href="#galerie" class="hover:text-honey transition">Galerie</a></li>
+      <li><a href="#bewertungen" class="hover:text-honey transition">Bewertungen</a></li>
+      <li><a href="#zeiten" class="hover:text-honey transition">Öffnungszeiten</a></li>
+      <li><a href="#kontakt" class="hover:text-honey transition">Kontakt</a></li>
+    </ul>
+    <a href="https://www.google.com/maps/dir/?api=1&destination=ONOS+Caf%C3%A9+Augsburgerstra%C3%9Fe+2+80337+M%C3%BCnchen" target="_blank" rel="noopener"
+       class="hidden sm:inline-flex items-center gap-1.5 rounded-full bg-terra hover:bg-terradark text-cream text-sm font-semibold px-4 py-2 transition shadow-lg shadow-terra/20">
+      Route planen
+    </a>
+  </nav>
+</header>
+
+<!-- Hero -->
+<section id="top" class="relative min-h-[100svh] flex items-center overflow-hidden">
+  <div class="absolute inset-0" id="heroParallax">
+    <img src="https://lh3.googleusercontent.com/place-photos/AJRVUZPaqfrRO6c-uWxSSIKnBn1Tk70P_toKCxAEc1uL0gMC_qtaAelh590d9fLKQb4jGFWJtfg0PrIVjs5o-bgoxPVFdX-kO5Yojxiw6P091vV7F8E8qVDlvuz4o-V84HmZWQjTouqrVM-v9dio00nB0HC-dQ=s4800-w1600-h1200"
+         alt="Blick in das gemütliche ONOS Café in München" class="kenburns w-full h-full object-cover">
+  </div>
+  <div class="absolute inset-0 bg-gradient-to-b from-espresso/70 via-espresso/50 to-espresso/85"></div>
+  <div class="absolute inset-0 bg-gradient-to-tr from-terra/25 to-transparent mix-blend-multiply"></div>
+
+  <!-- Signatur: schwebende Tasse mit Dampf -->
+  <div class="hidden sm:block absolute right-8 lg:right-24 top-1/2 -translate-y-1/2 z-10 floaty" id="signatureCup" aria-hidden="true">
+    <div class="relative">
+      <div class="steam absolute left-1/2 -translate-x-1/2 -top-9 w-12 h-9"><span></span><span></span><span></span></div>
+      <svg width="118" height="110" viewBox="0 0 118 110" fill="none" xmlns="http://www.w3.org/2000/svg" class="drop-shadow-2xl">
+        <path d="M18 40h70v28a30 30 0 0 1-30 30H48a30 30 0 0 1-30-30V40Z" fill="#faf4ea"/>
+        <path d="M18 40h70v10H18z" fill="#e0a445"/>
+        <path d="M88 46h10a14 14 0 0 1 0 28h-4" stroke="#faf4ea" stroke-width="7" fill="none" stroke-linecap="round"/>
+        <ellipse cx="53" cy="42" rx="35" ry="8" fill="#3b241a"/>
+        <path d="M40 104h34" stroke="#faf4ea" stroke-width="7" stroke-linecap="round"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="relative z-20 max-w-6xl mx-auto px-5 w-full pt-24 pb-16">
+    <div class="max-w-2xl">
+      <p class="reveal inline-flex items-center gap-2 text-honey font-semibold tracking-wide uppercase text-xs mb-5">
+        <span class="h-px w-8 bg-honey/70"></span> Kaffee · Café · München
+      </p>
+      <h1 class="reveal font-display text-5xl sm:text-6xl lg:text-7xl font-bold text-cream leading-[1.02] mb-6">
+        Ein Platz zum<br><span class="text-honey">Verweilen.</span>
+      </h1>
+      <p class="reveal text-lg sm:text-xl text-cream/85 leading-relaxed mb-8 max-w-xl">
+        Guter Kaffee, frische Kleinigkeiten und eine herzliche, farbenfrohe Atmosphäre –
+        mitten in München in der Augsburgerstraße.
+      </p>
+
+      <div class="reveal flex flex-wrap items-center gap-4 mb-9">
+        <div class="inline-flex items-center gap-2.5 rounded-full bg-cream/10 backdrop-blur px-4 py-2.5 ring-1 ring-cream/20">
+          <span class="text-honey text-lg leading-none tracking-tight">★★★★★</span>
+          <span class="text-cream font-semibold">4,9</span>
+          <span class="text-cream/70 text-sm">· 188 Bewertungen bei Google</span>
+        </div>
+      </div>
+
+      <div class="reveal flex flex-wrap gap-4">
+        <a href="https://www.google.com/maps/dir/?api=1&destination=ONOS+Caf%C3%A9+Augsburgerstra%C3%9Fe+2+80337+M%C3%BCnchen" target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 rounded-full bg-terra hover:bg-terradark text-cream font-semibold px-7 py-3.5 transition shadow-xl shadow-terra/30 hover:-translate-y-0.5">
+          Route planen
+        </a>
+        <a href="#ueber"
+           class="inline-flex items-center gap-2 rounded-full bg-cream/10 hover:bg-cream/20 backdrop-blur text-cream font-semibold px-7 py-3.5 ring-1 ring-cream/30 transition">
+          Mehr entdecken
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <a href="#ueber" class="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 text-cream/60 hover:text-cream transition animate-bounce" aria-label="Nach unten scrollen">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+  </a>
+</section>
+
+<main>
+
+<!-- Über uns / Angebot -->
+<section id="ueber" class="py-24 sm:py-32 bg-cream">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="grid lg:grid-cols-2 gap-14 items-center">
+      <div class="reveal">
+        <p class="text-terra font-semibold uppercase tracking-wide text-xs mb-4">Willkommen</p>
+        <h2 class="font-display text-4xl sm:text-5xl font-bold mb-6 leading-tight">
+          Herzlich willkommen im ONOS Café
+        </h2>
+        <p class="text-lg text-espresso/75 leading-relaxed mb-5">
+          Bei uns dreht sich alles um den kleinen Moment der Auszeit im Alltag: eine gute Tasse Kaffee,
+          etwas Frisches auf die Hand und ein herzliches Lächeln hinter der Theke.
+        </p>
+        <p class="text-lg text-espresso/75 leading-relaxed">
+          Dass unsere Gäste das genauso sehen, freut uns besonders – mit
+          <span class="font-semibold text-espresso">4,9 von 5 Sternen</span> bei
+          <span class="font-semibold text-espresso">188 Google-Bewertungen</span> zählen wir zu den
+          beliebtesten Cafés in der Nachbarschaft.
+        </p>
+      </div>
+      <div class="reveal relative">
+        <img src="https://lh3.googleusercontent.com/place-photos/AJRVUZNAF8MSQ3VcSigx2OekC-Jwxjd4asGOZcf8hvFXRMeRWYMc7x1JdDgBr843_-bfr0VK5_IQseJbnLrqD4fRyO_Eq6EfJr2xDk92pWK5648Njg4C555L-nwa4RR43Tk91ZThqn3MbAySakOPaePcRN69xg=s4800-w1207-h1200"
+             loading="lazy" alt="Kleinigkeiten und Gebäck im ONOS Café"
+             class="rounded-3xl object-cover w-full aspect-[4/5] shadow-2xl shadow-espresso/20">
+        <div class="absolute -bottom-6 -left-6 bg-terra text-cream rounded-2xl px-6 py-4 shadow-xl hidden sm:block">
+          <p class="font-display text-3xl font-bold leading-none">4,9 ★</p>
+          <p class="text-cream/80 text-xs mt-1">bei Google</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Angebot-Karten (aus Google-Kategorien abgeleitet) -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-20">
+      <div class="reveal group bg-white rounded-2xl p-7 ring-1 ring-espresso/5 hover:ring-terra/30 hover:-translate-y-1 transition shadow-sm">
+        <div class="w-12 h-12 rounded-xl bg-terra/10 text-terra grid place-items-center mb-4 text-2xl">☕</div>
+        <h3 class="font-display text-xl font-bold mb-2">Kaffeespezialitäten</h3>
+        <p class="text-espresso/65 text-sm leading-relaxed">Frisch gebrüht – vom klassischen Espresso bis zum kühlen Freddo.</p>
+      </div>
+      <div class="reveal group bg-white rounded-2xl p-7 ring-1 ring-espresso/5 hover:ring-terra/30 hover:-translate-y-1 transition shadow-sm" style="transition-delay:.05s">
+        <div class="w-12 h-12 rounded-xl bg-olive/10 text-olive grid place-items-center mb-4 text-2xl">🍊</div>
+        <h3 class="font-display text-xl font-bold mb-2">Frische Säfte</h3>
+        <p class="text-espresso/65 text-sm leading-relaxed">Fruchtig und frisch gepresst – der perfekte Muntermacher.</p>
+      </div>
+      <div class="reveal group bg-white rounded-2xl p-7 ring-1 ring-espresso/5 hover:ring-terra/30 hover:-translate-y-1 transition shadow-sm" style="transition-delay:.1s">
+        <div class="w-12 h-12 rounded-xl bg-honey/15 text-honey grid place-items-center mb-4 text-2xl">🥐</div>
+        <h3 class="font-display text-xl font-bold mb-2">Snacks & Gebäck</h3>
+        <p class="text-espresso/65 text-sm leading-relaxed">Kleine Speisen und Gebäck – ideal für zwischendurch.</p>
+      </div>
+      <div class="reveal group bg-white rounded-2xl p-7 ring-1 ring-espresso/5 hover:ring-terra/30 hover:-translate-y-1 transition shadow-sm" style="transition-delay:.15s">
+        <div class="w-12 h-12 rounded-xl bg-espresso/10 text-espresso grid place-items-center mb-4 text-2xl">🥡</div>
+        <h3 class="font-display text-xl font-bold mb-2">Zum Mitnehmen</h3>
+        <p class="text-espresso/65 text-sm leading-relaxed">Alles gibt es auch to go – gut für den Weg durch die Stadt.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Galerie -->
+<section id="galerie" class="py-24 sm:py-32 bg-sand/60">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="reveal max-w-2xl mb-14">
+      <p class="text-terra font-semibold uppercase tracking-wide text-xs mb-4">Einblicke</p>
+      <h2 class="font-display text-4xl sm:text-5xl font-bold leading-tight">Ein Blick ins Café</h2>
+    </div>
+    <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+      <div class="reveal col-span-2 lg:col-span-2 lg:row-span-2 overflow-hidden rounded-2xl">
+        <img src="https://lh3.googleusercontent.com/place-photos/AJRVUZM2tyTvn60gBpM-GpPA6VJTWdoRJE7loqTDRuTZeE3j7yzDsVG0vPuwinq0aHtp72vvvDDG5Ndy2HAgtOji3FigxBpLABeQYfTl0YTJC4qx5UfFKLaf77rJViLQSwCnACI5ePal1iV3AgI0PJWiZWdRZA=s4800-w1600-h1200"
+             loading="lazy" alt="Sitzbereich im ONOS Café"
+             class="w-full h-full object-cover aspect-[4/3] lg:aspect-auto hover:scale-105 transition duration-700">
+      </div>
+      <div class="reveal overflow-hidden rounded-2xl">
+        <img src="https://lh3.googleusercontent.com/place-photos/AJRVUZPEWCPmtv7aEWyOYfbRB5YpBJgFdXu1TdkiSQtlpmz0D9cs22lHBJcI00z8y01LJtcN6VOpB97jwnnQIA-LJ1JeH8vli8E2sI5IG_4y-JPIsK0VQF6ybo01B3AiHm9A_ZjiTi2vvMtAr6Mp_4hsoL9d5Q=s4800-w973-h1066"
+             loading="lazy" alt="Detailaufnahme aus dem ONOS Café"
+             class="w-full h-full object-cover aspect-square hover:scale-105 transition duration-700">
+      </div>
+      <div class="reveal overflow-hidden rounded-2xl">
+        <img src="https://lh3.googleusercontent.com/place-photos/AJRVUZPzHxojbu7mQLOo8IyNyafotP7xM80sUQIxXQ3o_9SvgwbJDPDG9jJJdQYPfGT5LAOu42MqITkjqckrzewH-mgDT4kTzQdoKahB-5fQFMQC5hh-alOlT4FFICnzVHr3pJACOGgTTQrDp7hGPNO6Q5-UjA=s4800-w1600-h1200"
+             loading="lazy" alt="Angebot und Atmosphäre im ONOS Café"
+             class="w-full h-full object-cover aspect-square hover:scale-105 transition duration-700">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Bewertungen -->
+<section id="bewertungen" class="py-24 sm:py-32 bg-espresso text-cream relative overflow-hidden">
+  <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-terra/20 blur-3xl" aria-hidden="true"></div>
+  <div class="max-w-6xl mx-auto px-5 relative">
+    <div class="reveal max-w-2xl mb-14">
+      <p class="text-honey font-semibold uppercase tracking-wide text-xs mb-4">Das sagen unsere Gäste</p>
+      <h2 class="font-display text-4xl sm:text-5xl font-bold leading-tight mb-4">4,9 ★ bei 188 Bewertungen</h2>
+      <p class="text-cream/70 text-lg">Echte Stimmen unserer Gäste bei Google.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <figure class="reveal bg-cream/5 backdrop-blur rounded-2xl p-7 ring-1 ring-cream/10">
+        <div class="text-honey text-lg mb-4">★★★★★</div>
+        <blockquote class="text-cream/90 leading-relaxed mb-6">“It’s a very cozy place, with a delicious food and a really nice people working here! It’s my second time here, so I totally recommend and will definitely come back 🌸”</blockquote>
+        <figcaption class="flex items-center gap-3">
+          <span class="w-9 h-9 rounded-full bg-terra grid place-items-center text-cream text-sm font-bold">A</span>
+          <span><span class="block font-semibold text-cream">anasta sia</span><span class="text-cream/50 text-xs">vor 2 Monaten</span></span>
+        </figcaption>
+      </figure>
+      <figure class="reveal bg-cream/5 backdrop-blur rounded-2xl p-7 ring-1 ring-cream/10" style="transition-delay:.08s">
+        <div class="text-honey text-lg mb-4">★★★★★</div>
+        <blockquote class="text-cream/90 leading-relaxed mb-6">“I love their grilled cheese! They also have very nice authentic Greek pastry and nice coffee! 10/10! (Best grilled cheese in Munich - my opinion)”</blockquote>
+        <figcaption class="flex items-center gap-3">
+          <span class="w-9 h-9 rounded-full bg-olive grid place-items-center text-cream text-sm font-bold">E</span>
+          <span><span class="block font-semibold text-cream">Eva</span><span class="text-cream/50 text-xs">vor 2 Monaten</span></span>
+        </figcaption>
+      </figure>
+      <figure class="reveal bg-cream/5 backdrop-blur rounded-2xl p-7 ring-1 ring-cream/10" style="transition-delay:.16s">
+        <div class="text-honey text-lg mb-4">★★★★★</div>
+        <blockquote class="text-cream/90 leading-relaxed mb-6">“Greek cafe with so many options for bites to eat! Also good to know that one can get a nice Freddo Cappuccino here. Good coffee, nice staff and bonus: They now have baked goods from Suaapinga! Love the vibes of the place too, so colourful and Mediterranean.”</blockquote>
+        <figcaption class="flex items-center gap-3">
+          <span class="w-9 h-9 rounded-full bg-honey grid place-items-center text-espresso text-sm font-bold">S</span>
+          <span><span class="block font-semibold text-cream">Simran A</span><span class="text-cream/50 text-xs">vor 4 Monaten</span></span>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- Öffnungszeiten -->
+<section id="zeiten" class="py-24 sm:py-32 bg-cream">
+  <div class="max-w-6xl mx-auto px-5 grid lg:grid-cols-2 gap-14 items-center">
+    <div class="reveal">
+      <p class="text-terra font-semibold uppercase tracking-wide text-xs mb-4">Wann wir da sind</p>
+      <h2 class="font-display text-4xl sm:text-5xl font-bold leading-tight mb-6">Öffnungszeiten</h2>
+      <p class="text-espresso/70 text-lg leading-relaxed">Kommen Sie auf einen Kaffee vorbei – wir freuen uns auf Sie.</p>
+    </div>
+    <div class="reveal bg-white rounded-2xl ring-1 ring-espresso/5 shadow-sm overflow-hidden">
+      <dl>
+        <div class="flex justify-between px-6 py-4 border-b border-sand/70"><dt class="font-medium">Montag</dt><dd class="text-espresso/70">08:00 – 18:00 Uhr</dd></div>
+        <div class="flex justify-between px-6 py-4 border-b border-sand/70"><dt class="font-medium">Dienstag</dt><dd class="text-espresso/70">08:00 – 18:00 Uhr</dd></div>
+        <div class="flex justify-between px-6 py-4 border-b border-sand/70"><dt class="font-medium">Mittwoch</dt><dd class="text-espresso/70">08:00 – 18:00 Uhr</dd></div>
+        <div class="flex justify-between px-6 py-4 border-b border-sand/70"><dt class="font-medium">Donnerstag</dt><dd class="text-espresso/70">08:00 – 18:00 Uhr</dd></div>
+        <div class="flex justify-between px-6 py-4 border-b border-sand/70"><dt class="font-medium">Freitag</dt><dd class="text-espresso/70">08:00 – 18:00 Uhr</dd></div>
+        <div class="flex justify-between px-6 py-4 border-b border-sand/70"><dt class="font-medium">Samstag</dt><dd class="text-espresso/70">09:00 – 17:00 Uhr</dd></div>
+        <div class="flex justify-between px-6 py-4"><dt class="font-medium">Sonntag</dt><dd class="text-terra font-semibold">Geschlossen</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- Kontakt -->
+<section id="kontakt" class="py-24 sm:py-32 bg-sand/60">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="reveal max-w-2xl mb-14">
+      <p class="text-terra font-semibold uppercase tracking-wide text-xs mb-4">So finden Sie uns</p>
+      <h2 class="font-display text-4xl sm:text-5xl font-bold leading-tight">Kontakt & Anfahrt</h2>
+    </div>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="reveal bg-white rounded-2xl p-8 ring-1 ring-espresso/5 shadow-sm">
+        <div class="flex items-start gap-4">
+          <span class="w-11 h-11 shrink-0 rounded-xl bg-terra/10 text-terra grid place-items-center text-xl">📍</span>
+          <div>
+            <h3 class="font-display text-xl font-bold mb-1">Adresse</h3>
+            <p class="text-espresso/75 leading-relaxed">Augsburgerstraße 2<br>80337 München</p>
+            <a href="https://www.google.com/maps/search/?api=1&query=ONOS+Caf%C3%A9+Augsburgerstra%C3%9Fe+2+80337+M%C3%BCnchen" target="_blank" rel="noopener"
+               class="inline-flex items-center gap-1.5 mt-4 text-terra font-semibold hover:text-terradark transition">
+              Auf Google Maps ansehen →
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="reveal bg-terra text-cream rounded-2xl p-8 shadow-sm flex flex-col justify-between">
+        <div>
+          <h3 class="font-display text-2xl font-bold mb-3">Auf einen Kaffee vorbei?</h3>
+          <p class="text-cream/85 leading-relaxed">Planen Sie Ihre Route und besuchen Sie uns mitten in München.</p>
+        </div>
+        <a href="https://www.google.com/maps/dir/?api=1&destination=ONOS+Caf%C3%A9+Augsburgerstra%C3%9Fe+2+80337+M%C3%BCnchen" target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 mt-6 rounded-full bg-cream text-terra font-semibold px-6 py-3 hover:bg-white transition self-start">
+          Route planen
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-espresso text-cream/80">
+  <div class="max-w-6xl mx-auto px-5 py-14">
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-8">
+      <div>
+        <a href="#top" class="flex items-center gap-2 font-display text-2xl font-bold text-cream mb-3">
+          <span class="inline-block w-8 h-8 rounded-full bg-terra grid place-items-center text-cream text-sm font-bold">O</span>
+          ONOS Café
+        </a>
+        <p class="text-cream/60 text-sm">Augsburgerstraße 2 · 80337 München</p>
+      </div>
+      <nav class="flex flex-wrap gap-x-6 gap-y-2 text-sm">
+        <a href="#ueber" class="hover:text-honey transition">Über uns</a>
+        <a href="#galerie" class="hover:text-honey transition">Galerie</a>
+        <a href="#bewertungen" class="hover:text-honey transition">Bewertungen</a>
+        <a href="#zeiten" class="hover:text-honey transition">Öffnungszeiten</a>
+        <a href="#kontakt" class="hover:text-honey transition">Kontakt</a>
+      </nav>
+    </div>
+    <div class="border-t border-cream/10 mt-10 pt-6 flex flex-col sm:flex-row justify-between gap-4 text-sm text-cream/50">
+      <p>© <span id="year"></span> ONOS Café. Alle Rechte vorbehalten.</p>
+      <div class="flex gap-6">
+        <a href="/impressum" class="hover:text-cream transition">Impressum</a>
+        <a href="/datenschutz" class="hover:text-cream transition">Datenschutz</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Scroll-Reveal
+  var reveals = document.querySelectorAll('.reveal');
+  if (reduce || !('IntersectionObserver' in window)) {
+    reveals.forEach(function (el) { el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+    reveals.forEach(function (el) { io.observe(el); });
+  }
+
+  // Sticky-Header: Hintergrund beim Scrollen
+  var header = document.getElementById('siteHeader');
+  var brand = document.getElementById('brand');
+  var navLinks = document.getElementById('navLinks');
+  function onScrollHeader() {
+    var scrolled = window.scrollY > 40;
+    header.classList.toggle('bg-cream/95', scrolled);
+    header.classList.toggle('backdrop-blur', scrolled);
+    header.classList.toggle('shadow-md', scrolled);
+    header.classList.toggle('shadow-espresso/5', scrolled);
+    brand.classList.toggle('text-espresso', scrolled);
+    brand.classList.toggle('text-cream', !scrolled);
+    if (navLinks) {
+      navLinks.classList.toggle('text-espresso/80', scrolled);
+      navLinks.classList.toggle('text-cream/90', !scrolled);
+    }
+  }
+  onScrollHeader();
+  window.addEventListener('scroll', onScrollHeader, { passive: true });
+
+  if (reduce) return;
+
+  // Signatur: Parallax auf Hero-Foto + Tilt der Tasse
+  var parallax = document.getElementById('heroParallax');
+  var cup = document.getElementById('signatureCup');
+  var ticking = false;
+  function onScrollParallax() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () {
+      var y = window.scrollY;
+      if (y < window.innerHeight) {
+        parallax.style.transform = 'translateY(' + (y * 0.28) + 'px)';
+        if (cup) cup.style.opacity = Math.max(0, 1 - y / (window.innerHeight * 0.7));
+      }
+      ticking = false;
+    });
+  }
+  window.addEventListener('scroll', onScrollParallax, { passive: true });
+
+  // Sanfter 3D-Tilt der Tasse per Maus
+  if (cup && window.matchMedia('(pointer:fine)').matches) {
+    window.addEventListener('mousemove', function (e) {
+      var rx = (e.clientY / window.innerHeight - 0.5) * -12;
+      var ry = (e.clientX / window.innerWidth - 0.5) * 14;
+      cup.style.transform = 'perspective(600px) rotateX(' + rx + 'deg) rotateY(' + ry + 'deg)';
+    });
+  }
+})();
+</script>
+</body>
+</html>
